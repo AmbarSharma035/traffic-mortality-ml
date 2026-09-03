@@ -1,0 +1,38 @@
+# Data files (too large for git)
+data/raw/
+data/interim/
+data/processed/
+
+# Trained models
+models/trained/*.pkl
+models/trained/*.joblib
+
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Outputs (regenerable)
+outputs/figures/
+outputs/reports/
+outputs/maps/
