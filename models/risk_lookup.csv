@@ -1,0 +1,623 @@
+road_type,junction_type,weather,hour_bucket,is_weekend,n_accidents,weighted_sum,fatal_count,serious_count,smoothed_avg_weight,risk_score,risk_level
+National Highway,No Junction,Foggy,Night (00-05),0,14,42,4,4,2.4778545454545453,41.3,Medium
+National Highway,Four Arm Junction,Foggy,Evening (17-21),0,35,94,7,12,2.4770418604651163,41.28,Medium
+National Highway,No Junction,Foggy,Evening (17-21),1,24,65,5,8,2.422275,40.37,Medium
+State Highway,Roundabout,Foggy,Evening (17-21),0,13,36,3,4,2.3101333333333334,38.5,Medium
+National Highway,Roundabout,Foggy,Evening (17-21),1,8,24,2,3,2.28205,38.03,Medium
+Rural Road,T-Junction,Rainy,Night (00-05),0,8,24,2,3,2.28205,38.03,Medium
+National Highway,No Junction,Foggy,Night (00-05),1,8,23,1,5,2.21955,36.99,Medium
+Urban Road,Roundabout,Foggy,Late Night (22-23),0,4,14,2,0,2.2094,36.82,Medium
+National Highway,Four Arm Junction,Windy,Morning (06-11),0,15,38,3,4,2.196208695652174,36.6,Medium
+Urban Road,No Junction,Foggy,Night (00-05),0,20,48,4,4,2.1611714285714285,36.02,Medium
+National Highway,Four Arm Junction,Rainy,Night (00-05),1,2,9,1,1,2.15128,35.85,Medium
+National Highway,Roundabout,Rainy,Late Night (22-23),1,2,9,1,1,2.15128,35.85,Medium
+National Highway,T-Junction,Foggy,Afternoon (12-16),0,26,60,4,7,2.1327294117647058,35.55,Medium
+State Highway,T-Junction,Foggy,Morning (06-11),1,12,30,2,4,2.1256399999999998,35.43,Medium
+State Highway,No Junction,Foggy,Evening (17-21),1,22,51,3,7,2.1170933333333335,35.28,Medium
+National Highway,T-Junction,Clear,Night (00-05),0,59,128,5,22,2.0972059701492536,34.95,Medium
+Urban Road,Roundabout,Foggy,Evening (17-21),1,10,25,1,5,2.0840444444444444,34.73,Medium
+National Highway,No Junction,Foggy,Morning (06-11),1,23,52,3,7,2.081058064516129,34.68,Medium
+National Highway,Four Arm Junction,Rainy,Afternoon (12-16),1,13,31,2,4,2.0720380952380952,34.53,Medium
+State Highway,Roundabout,Windy,Afternoon (12-16),1,1,6,1,0,2.0569777777777776,34.28,Medium
+Urban Road,Roundabout,Windy,Night (00-05),1,1,6,1,0,2.0569777777777776,34.28,Medium
+State Highway,T-Junction,Foggy,Late Night (22-23),0,3,10,1,1,2.046618181818182,34.11,Medium
+State Highway,Four Arm Junction,Foggy,Evening (17-21),1,5,14,1,2,2.039446153846154,33.99,Medium
+National Highway,Four Arm Junction,Rainy,Evening (17-21),1,20,44,2,7,2.0183142857142857,33.64,Medium
+National Highway,No Junction,Rainy,Late Night (22-23),0,23,50,1,11,2.016541935483871,33.61,Medium
+National Highway,T-Junction,Foggy,Evening (17-21),0,29,62,1,14,2.0138594594594594,33.56,Medium
+State Highway,Four Arm Junction,Clear,Late Night (22-23),0,20,43,3,4,1.9826,33.04,Medium
+National Highway,Roundabout,Foggy,Morning (06-11),0,19,41,2,6,1.9819555555555555,33.03,Medium
+State Highway,No Junction,Rainy,Afternoon (12-16),1,19,41,2,6,1.9819555555555555,33.03,Medium
+National Highway,No Junction,Foggy,Late Night (22-23),0,14,31,1,6,1.9778545454545453,32.96,Medium
+National Highway,Roundabout,Foggy,Afternoon (12-16),0,11,25,2,2,1.974357894736842,32.91,Medium
+National Highway,T-Junction,Foggy,Evening (17-21),1,10,23,1,4,1.9729333333333332,32.88,Medium
+National Highway,Four Arm Junction,Windy,Morning (06-11),1,10,23,1,4,1.9729333333333332,32.88,Medium
+National Highway,Four Arm Junction,Foggy,Late Night (22-23),0,9,21,0,6,1.9713411764705882,32.86,Medium
+National Highway,No Junction,Rainy,Night (00-05),1,8,19,1,3,1.96955,32.83,Medium
+State Highway,Roundabout,Windy,Evening (17-21),0,8,19,1,3,1.96955,32.83,Medium
+National Highway,T-Junction,Foggy,Late Night (22-23),0,7,17,0,5,1.96752,32.79,Medium
+State Highway,T-Junction,Rainy,Late Night (22-23),0,7,17,0,5,1.96752,32.79,Medium
+National Highway,Four Arm Junction,Foggy,Night (00-05),0,6,15,1,2,1.9651999999999998,32.75,Medium
+Urban Road,T-Junction,Windy,Late Night (22-23),0,4,11,1,1,1.9593999999999998,32.66,Medium
+State Highway,Four Arm Junction,Rainy,Late Night (22-23),1,4,11,1,1,1.9593999999999998,32.66,Medium
+Rural Road,Roundabout,Foggy,Evening (17-21),0,4,11,1,1,1.9593999999999998,32.66,Medium
+Urban Road,No Junction,Windy,Night (00-05),1,4,11,1,1,1.9593999999999998,32.66,Medium
+Rural Road,No Junction,Foggy,Night (00-05),1,4,11,1,1,1.9593999999999998,32.66,Medium
+Urban Road,Roundabout,Foggy,Evening (17-21),0,27,56,1,12,1.9575085714285714,32.63,Medium
+State Highway,Four Arm Junction,Foggy,Late Night (22-23),0,2,7,1,0,1.95128,32.52,Medium
+Rural Road,Four Arm Junction,Foggy,Night (00-05),0,2,7,1,0,1.95128,32.52,Medium
+National Highway,No Junction,Foggy,Afternoon (12-16),1,18,38,2,5,1.9427999999999999,32.38,Medium
+Urban Road,Four Arm Junction,Foggy,Evening (17-21),1,16,34,2,4,1.9380333333333333,32.3,Medium
+National Highway,Four Arm Junction,Clear,Late Night (22-23),0,32,65,3,9,1.9378199999999999,32.3,Medium
+State Highway,No Junction,Foggy,Afternoon (12-16),0,38,76,2,14,1.924191304347826,32.07,Medium
+State Highway,T-Junction,Foggy,Afternoon (12-16),0,24,49,1,10,1.922275,32.04,Medium
+Rural Road,Roundabout,Clear,Evening (17-21),1,11,24,1,4,1.9217263157894735,32.03,Medium
+State Highway,Roundabout,Rainy,Afternoon (12-16),0,11,24,1,4,1.9217263157894735,32.03,Medium
+National Highway,Four Arm Junction,Clear,Late Night (22-23),1,11,24,1,4,1.9217263157894735,32.03,Medium
+National Highway,Four Arm Junction,Rainy,Morning (06-11),1,23,47,2,7,1.9197677419354837,32.0,Medium
+National Highway,Four Arm Junction,Foggy,Morning (06-11),0,33,66,1,14,1.9149463414634147,31.92,Medium
+National Highway,Four Arm Junction,Windy,Evening (17-21),0,21,43,2,6,1.9142344827586206,31.9,Medium
+National Highway,T-Junction,Clear,Evening (17-21),0,195,376,13,58,1.913856157635468,31.9,Medium
+State Highway,T-Junction,Foggy,Afternoon (12-16),1,9,20,1,3,1.9125176470588234,31.88,Medium
+Urban Road,Roundabout,Foggy,Night (00-05),0,9,20,1,3,1.9125176470588234,31.88,Medium
+National Highway,No Junction,Clear,Late Night (22-23),1,39,77,4,9,1.904527659574468,31.74,Medium
+State Highway,T-Junction,Clear,Night (00-05),0,18,37,1,7,1.9043384615384615,31.74,Medium
+State Highway,Four Arm Junction,Clear,Late Night (22-23),1,17,35,0,9,1.900512,31.68,Medium
+Rural Road,No Junction,Foggy,Late Night (22-23),0,7,16,1,2,1.9008533333333333,31.68,Medium
+National Highway,No Junction,Rainy,Night (00-05),0,17,35,2,4,1.900512,31.68,Medium
+National Highway,T-Junction,Clear,Evening (17-21),1,91,175,8,22,1.894068686868687,31.57,Medium
+National Highway,Four Arm Junction,Rainy,Evening (17-21),0,62,120,4,19,1.89304,31.55,Medium
+Urban Road,T-Junction,Rainy,Late Night (22-23),0,14,29,1,5,1.8869454545454545,31.45,Medium
+National Highway,T-Junction,Foggy,Late Night (22-23),1,5,12,1,1,1.8856,31.43,Medium
+National Highway,Four Arm Junction,Rainy,Late Night (22-23),1,5,12,1,1,1.8856,31.43,Medium
+National Highway,Roundabout,Rainy,Late Night (22-23),0,5,12,1,1,1.8856,31.43,Medium
+State Highway,No Junction,Rainy,Night (00-05),1,5,12,1,1,1.8856,31.43,Medium
+Urban Road,No Junction,Foggy,Late Night (22-23),0,22,44,2,6,1.8837599999999999,31.4,Medium
+National Highway,Roundabout,Rainy,Evening (17-21),0,22,44,0,11,1.8837599999999999,31.4,Medium
+National Highway,T-Junction,Rainy,Evening (17-21),1,29,57,2,9,1.8787243243243243,31.31,Medium
+National Highway,T-Junction,Foggy,Night (00-05),1,4,10,0,3,1.8760666666666665,31.27,Medium
+National Highway,No Junction,Foggy,Late Night (22-23),1,4,10,0,3,1.8760666666666665,31.27,Medium
+State Highway,No Junction,Foggy,Evening (17-21),0,52,100,2,19,1.8752133333333334,31.25,Medium
+National Highway,T-Junction,Rainy,Morning (06-11),1,27,53,4,3,1.8717942857142857,31.2,Medium
+National Highway,Four Arm Junction,Windy,Night (00-05),0,3,8,1,0,1.8647999999999998,31.08,Medium
+State Highway,Roundabout,Clear,Night (00-05),0,10,21,1,3,1.861822222222222,31.03,Medium
+National Highway,Roundabout,Clear,Night (00-05),0,17,34,1,6,1.860512,31.01,Medium
+Rural Road,T-Junction,Clear,Night (00-05),0,24,47,3,4,1.859775,31.0,Medium
+Urban Road,Four Arm Junction,Foggy,Night (00-05),1,2,6,0,2,1.8512799999999998,30.85,Medium
+State Highway,Roundabout,Rainy,Late Night (22-23),0,2,6,0,2,1.8512799999999998,30.85,Medium
+State Highway,Roundabout,Windy,Night (00-05),1,2,6,0,2,1.8512799999999998,30.85,Medium
+National Highway,Roundabout,Foggy,Evening (17-21),0,15,30,1,5,1.848382608695652,30.81,Medium
+National Highway,Four Arm Junction,Foggy,Afternoon (12-16),1,8,17,1,2,1.84455,30.74,Medium
+National Highway,No Junction,Rainy,Evening (17-21),0,129,240,9,33,1.8431591240875913,30.72,Medium
+National Highway,T-Junction,Rainy,Late Night (22-23),0,14,28,2,2,1.841490909090909,30.69,Medium
+National Highway,T-Junction,Foggy,Morning (06-11),0,45,85,2,15,1.8398641509433962,30.66,Medium
+State Highway,Four Arm Junction,Rainy,Evening (17-21),1,19,37,2,4,1.8338074074074073,30.56,Medium
+State Highway,T-Junction,Foggy,Evening (17-21),0,37,70,1,14,1.8336177777777778,30.56,Medium
+Urban Road,No Junction,Foggy,Morning (06-11),0,79,147,8,14,1.8334804597701149,30.56,Medium
+National Highway,Roundabout,Foggy,Night (00-05),0,6,13,1,1,1.822342857142857,30.37,Medium
+State Highway,Four Arm Junction,Foggy,Evening (17-21),0,17,33,2,3,1.820512,30.34,Medium
+National Highway,T-Junction,Clear,Afternoon (12-16),1,44,82,2,14,1.817553846153846,30.29,Medium
+State Highway,No Junction,Foggy,Late Night (22-23),0,11,22,1,3,1.8164631578947368,30.27,Medium
+Rural Road,Roundabout,Foggy,Afternoon (12-16),0,5,11,0,3,1.808676923076923,30.14,Medium
+National Highway,Four Arm Junction,Clear,Night (00-05),0,31,58,1,11,1.8080205128205127,30.13,Medium
+National Highway,No Junction,Foggy,Morning (06-11),0,76,139,3,24,1.8037238095238095,30.06,Medium
+State Highway,Four Arm Junction,Foggy,Afternoon (12-16),0,24,45,1,8,1.797275,29.95,Medium
+Urban Road,Roundabout,Clear,Night (00-05),1,9,18,1,2,1.794870588235294,29.91,Medium
+National Highway,Four Arm Junction,Windy,Evening (17-21),1,9,18,1,2,1.794870588235294,29.91,Medium
+Rural Road,Roundabout,Windy,Afternoon (12-16),0,4,9,1,0,1.7927333333333333,29.88,Medium
+State Highway,T-Junction,Rainy,Afternoon (12-16),0,33,61,2,9,1.7929951219512195,29.88,Medium
+Rural Road,No Junction,Foggy,Morning (06-11),1,18,34,0,8,1.7889538461538461,29.82,Medium
+National Highway,Four Arm Junction,Rainy,Afternoon (12-16),0,37,68,3,8,1.7891733333333333,29.82,Medium
+National Highway,Four Arm Junction,Clear,Evening (17-21),0,179,321,6,56,1.7834909090909092,29.72,Medium
+National Highway,T-Junction,Windy,Evening (17-21),0,39,71,2,11,1.776868085106383,29.61,Medium
+Rural Road,No Junction,Rainy,Late Night (22-23),0,12,23,1,3,1.7756399999999999,29.59,Medium
+State Highway,Roundabout,Clear,Late Night (22-23),0,12,23,1,3,1.7756399999999999,29.59,Medium
+National Highway,Four Arm Junction,Foggy,Morning (06-11),1,12,23,1,3,1.7756399999999999,29.59,Medium
+State Highway,Roundabout,Rainy,Afternoon (12-16),1,3,7,0,2,1.773890909090909,29.56,Medium
+Rural Road,Four Arm Junction,Foggy,Afternoon (12-16),1,3,7,0,2,1.773890909090909,29.56,Medium
+Urban Road,Four Arm Junction,Foggy,Late Night (22-23),1,3,7,0,2,1.773890909090909,29.56,Medium
+Urban Road,Four Arm Junction,Rainy,Late Night (22-23),1,3,7,0,2,1.773890909090909,29.56,Medium
+National Highway,No Junction,Windy,Night (00-05),1,3,7,0,2,1.773890909090909,29.56,Medium
+Rural Road,No Junction,Foggy,Evening (17-21),0,33,60,1,11,1.7686048780487804,29.48,Medium
+State Highway,T-Junction,Rainy,Evening (17-21),1,20,37,1,6,1.7683142857142857,29.47,Medium
+National Highway,Four Arm Junction,Windy,Night (00-05),1,7,14,1,1,1.76752,29.46,Medium
+National Highway,T-Junction,Rainy,Evening (17-21),0,63,113,4,15,1.7677859154929578,29.46,Medium
+Urban Road,Roundabout,Clear,Late Night (22-23),1,7,14,1,1,1.76752,29.46,Medium
+National Highway,Four Arm Junction,Clear,Evening (17-21),1,71,127,4,18,1.7659848101265823,29.43,Medium
+Urban Road,No Junction,Rainy,Night (00-05),0,41,74,3,9,1.7655673469387754,29.43,Medium
+Urban Road,Four Arm Junction,Foggy,Afternoon (12-16),0,32,58,2,8,1.76282,29.38,Medium
+Rural Road,T-Junction,Windy,Evening (17-21),0,19,35,2,3,1.7597333333333334,29.33,Medium
+Urban Road,Four Arm Junction,Rainy,Night (00-05),1,6,12,0,3,1.7509142857142856,29.18,Medium
+Urban Road,Four Arm Junction,Rainy,Night (00-05),0,14,26,0,6,1.750581818181818,29.18,Medium
+National Highway,T-Junction,Foggy,Morning (06-11),1,10,19,1,2,1.750711111111111,29.18,Medium
+State Highway,Roundabout,Foggy,Night (00-05),0,6,12,0,3,1.7509142857142856,29.18,Medium
+State Highway,Four Arm Junction,Windy,Afternoon (12-16),0,10,19,1,2,1.750711111111111,29.18,Medium
+State Highway,No Junction,Foggy,Night (00-05),0,10,19,1,2,1.750711111111111,29.18,Medium
+Rural Road,No Junction,Windy,Night (00-05),0,6,12,0,3,1.7509142857142856,29.18,Medium
+Urban Road,Four Arm Junction,Foggy,Night (00-05),0,10,19,1,2,1.750711111111111,29.18,Medium
+State Highway,Four Arm Junction,Rainy,Night (00-05),0,6,12,0,3,1.7509142857142856,29.18,Medium
+National Highway,T-Junction,Windy,Afternoon (12-16),1,6,12,0,3,1.7509142857142856,29.18,Medium
+State Highway,No Junction,Windy,Morning (06-11),0,34,61,3,6,1.7503047619047618,29.17,Medium
+National Highway,No Junction,Rainy,Morning (06-11),1,42,75,1,14,1.750256,29.17,Medium
+State Highway,Roundabout,Clear,Evening (17-21),0,58,103,3,15,1.7501939393939394,29.17,Medium
+Urban Road,T-Junction,Rainy,Night (00-05),0,22,40,0,9,1.7504266666666666,29.17,Medium
+National Highway,Roundabout,Clear,Evening (17-21),1,41,73,2,11,1.7451591836734694,29.09,Medium
+State Highway,Four Arm Junction,Clear,Afternoon (12-16),1,29,52,1,9,1.7435891891891893,29.06,Medium
+Rural Road,T-Junction,Foggy,Afternoon (12-16),0,17,31,2,2,1.7405119999999998,29.01,Medium
+National Highway,No Junction,Foggy,Evening (17-21),0,78,137,5,17,1.7385209302325582,28.98,Medium
+National Highway,Roundabout,Rainy,Afternoon (12-16),1,9,17,0,4,1.7360470588235293,28.93,Medium
+State Highway,T-Junction,Foggy,Night (00-05),0,9,17,0,4,1.7360470588235293,28.93,Medium
+National Highway,T-Junction,Windy,Late Night (22-23),0,9,17,0,4,1.7360470588235293,28.93,Medium
+National Highway,T-Junction,Clear,Late Night (22-23),0,39,69,0,15,1.7343148936170212,28.91,Medium
+State Highway,Four Arm Junction,Foggy,Night (00-05),0,5,10,1,0,1.731753846153846,28.86,Medium
+Urban Road,Roundabout,Windy,Morning (06-11),1,5,10,1,0,1.731753846153846,28.86,Medium
+National Highway,No Junction,Clear,Evening (17-21),0,398,690,18,101,1.730327093596059,28.84,Medium
+National Highway,No Junction,Rainy,Morning (06-11),0,122,212,8,25,1.7270215384615384,28.78,Medium
+Rural Road,Four Arm Junction,Rainy,Evening (17-21),1,12,22,0,5,1.7256399999999998,28.76,Medium
+Rural Road,Roundabout,Foggy,Late Night (22-23),1,1,3,0,1,1.7236444444444445,28.73,Medium
+Urban Road,Roundabout,Windy,Night (00-05),0,1,3,0,1,1.7236444444444445,28.73,Medium
+National Highway,Roundabout,Windy,Night (00-05),0,1,3,0,1,1.7236444444444445,28.73,Medium
+Rural Road,No Junction,Windy,Late Night (22-23),1,1,3,0,1,1.7236444444444445,28.73,Medium
+Rural Road,Four Arm Junction,Foggy,Night (00-05),1,1,3,0,1,1.7236444444444445,28.73,Medium
+Urban Road,T-Junction,Rainy,Late Night (22-23),1,8,15,1,1,1.71955,28.66,Medium
+Rural Road,T-Junction,Foggy,Morning (06-11),1,8,15,1,1,1.71955,28.66,Medium
+State Highway,Roundabout,Clear,Morning (06-11),0,58,101,3,14,1.7198909090909091,28.66,Medium
+State Highway,Roundabout,Clear,Night (00-05),1,8,15,1,1,1.71955,28.66,Medium
+National Highway,No Junction,Foggy,Afternoon (12-16),0,54,94,2,15,1.7179483870967742,28.63,Medium
+Rural Road,No Junction,Clear,Late Night (22-23),0,43,75,2,11,1.7159372549019607,28.6,Medium
+State Highway,T-Junction,Windy,Afternoon (12-16),0,18,32,0,7,1.7120307692307692,28.53,Medium
+State Highway,No Junction,Windy,Afternoon (12-16),1,11,20,1,2,1.7111999999999998,28.52,Medium
+Rural Road,No Junction,Rainy,Evening (17-21),0,63,109,2,18,1.7114478873239436,28.52,Medium
+Rural Road,T-Junction,Foggy,Late Night (22-23),0,4,8,0,2,1.7093999999999998,28.49,Medium
+State Highway,Roundabout,Rainy,Night (00-05),0,4,8,0,2,1.7093999999999998,28.49,Medium
+Rural Road,T-Junction,Windy,Late Night (22-23),0,4,8,0,2,1.7093999999999998,28.49,Medium
+Urban Road,No Junction,Rainy,Afternoon (12-16),1,38,66,2,9,1.7067999999999999,28.45,Medium
+Rural Road,No Junction,Foggy,Afternoon (12-16),1,14,25,1,3,1.7051272727272726,28.42,Medium
+National Highway,No Junction,Rainy,Evening (17-21),1,61,105,2,17,1.7030840579710145,28.38,Medium
+National Highway,T-Junction,Rainy,Morning (06-11),0,64,110,2,18,1.7015666666666667,28.36,Medium
+Urban Road,No Junction,Windy,Late Night (22-23),0,7,13,0,3,1.7008533333333333,28.35,Medium
+State Highway,Roundabout,Clear,Evening (17-21),1,27,47,0,10,1.7003657142857143,28.34,Medium
+National Highway,T-Junction,Rainy,Night (00-05),0,17,30,1,4,1.700512,28.34,Medium
+National Highway,No Junction,Clear,Night (00-05),1,30,52,2,6,1.6977052631578946,28.3,Medium
+Urban Road,No Junction,Rainy,Late Night (22-23),0,33,57,0,12,1.6954341463414633,28.26,Medium
+State Highway,Four Arm Junction,Windy,Evening (17-21),0,10,18,0,4,1.6951555555555555,28.25,Medium
+National Highway,Four Arm Junction,Rainy,Night (00-05),0,10,18,0,4,1.6951555555555555,28.25,Medium
+State Highway,Four Arm Junction,Foggy,Morning (06-11),1,10,18,0,4,1.6951555555555555,28.25,Medium
+National Highway,No Junction,Windy,Late Night (22-23),0,10,18,0,4,1.6951555555555555,28.25,Medium
+National Highway,T-Junction,Rainy,Afternoon (12-16),0,59,101,2,16,1.694220895522388,28.24,Medium
+National Highway,Roundabout,Rainy,Morning (06-11),0,23,40,1,6,1.6939612903225807,28.23,Medium
+State Highway,T-Junction,Rainy,Morning (06-11),1,23,40,1,6,1.6939612903225807,28.23,Medium
+National Highway,No Junction,Clear,Night (00-05),0,88,150,4,21,1.6928416666666666,28.21,Medium
+State Highway,No Junction,Rainy,Evening (17-21),1,39,67,2,9,1.6917617021276596,28.2,Medium
+National Highway,Four Arm Junction,Foggy,Evening (17-21),1,13,23,0,5,1.6910857142857143,28.18,Medium
+National Highway,Four Arm Junction,Clear,Morning (06-11),0,170,288,8,39,1.688274157303371,28.14,Medium
+Urban Road,T-Junction,Rainy,Evening (17-21),1,32,55,1,9,1.6878199999999999,28.13,Medium
+State Highway,Four Arm Junction,Clear,Evening (17-21),0,123,208,3,35,1.6833038167938932,28.06,Medium
+State Highway,Roundabout,Clear,Morning (06-11),1,22,38,2,3,1.68376,28.06,Medium
+National Highway,No Junction,Clear,Late Night (22-23),0,50,85,3,10,1.6812551724137932,28.02,Medium
+Urban Road,Four Arm Junction,Clear,Late Night (22-23),1,12,21,1,2,1.67564,27.93,Medium
+Rural Road,T-Junction,Clear,Late Night (22-23),1,12,21,1,2,1.67564,27.93,Medium
+National Highway,No Junction,Rainy,Afternoon (12-16),0,89,150,3,23,1.6753896907216494,27.92,Medium
+National Highway,Four Arm Junction,Rainy,Late Night (22-23),0,15,26,1,3,1.6744695652173913,27.91,Medium
+National Highway,Roundabout,Clear,Late Night (22-23),0,15,26,1,3,1.6744695652173913,27.91,Medium
+Rural Road,No Junction,Rainy,Morning (06-11),1,21,36,1,5,1.672855172413793,27.88,Medium
+National Highway,T-Junction,Windy,Afternoon (12-16),0,27,46,1,7,1.6717942857142856,27.86,Medium
+State Highway,No Junction,Clear,Late Night (22-23),0,48,81,1,14,1.6698714285714285,27.83,Medium
+National Highway,No Junction,Windy,Evening (17-21),0,62,104,4,11,1.6644685714285714,27.74,Medium
+State Highway,Four Arm Junction,Clear,Evening (17-21),1,41,69,4,4,1.6635265306122449,27.73,Medium
+National Highway,No Junction,Rainy,Afternoon (12-16),1,29,49,0,10,1.6625081081081081,27.71,Medium
+Urban Road,Four Arm Junction,Clear,Evening (17-21),1,67,112,5,10,1.6601706666666667,27.67,Medium
+State Highway,Roundabout,Rainy,Evening (17-21),0,14,24,0,5,1.6596727272727272,27.66,Medium
+National Highway,Roundabout,Windy,Evening (17-21),0,11,19,0,4,1.6585684210526315,27.64,Medium
+National Highway,No Junction,Clear,Morning (06-11),0,373,619,18,78,1.6575139107611547,27.63,Medium
+Urban Road,No Junction,Rainy,Late Night (22-23),1,8,14,0,3,1.65705,27.62,Medium
+State Highway,Four Arm Junction,Clear,Morning (06-11),1,40,67,1,11,1.6565166666666666,27.61,Medium
+National Highway,Roundabout,Clear,Evening (17-21),0,92,153,3,23,1.655128,27.59,Medium
+State Highway,Roundabout,Foggy,Morning (06-11),0,5,9,0,2,1.654830769230769,27.58,Medium
+Urban Road,Roundabout,Foggy,Night (00-05),1,5,9,0,2,1.654830769230769,27.58,Medium
+Rural Road,T-Junction,Windy,Morning (06-11),1,5,9,0,2,1.654830769230769,27.58,Medium
+Rural Road,Four Arm Junction,Rainy,Afternoon (12-16),1,5,9,0,2,1.654830769230769,27.58,Medium
+Rural Road,Roundabout,Foggy,Night (00-05),0,2,4,0,1,1.6512799999999999,27.52,Medium
+Rural Road,Four Arm Junction,Windy,Night (00-05),1,2,4,0,1,1.6512799999999999,27.52,Medium
+Rural Road,Roundabout,Foggy,Afternoon (12-16),1,2,4,0,1,1.6512799999999999,27.52,Medium
+State Highway,T-Junction,Windy,Afternoon (12-16),1,2,4,0,1,1.6512799999999999,27.52,Medium
+Rural Road,Roundabout,Windy,Evening (17-21),1,2,4,0,1,1.6512799999999999,27.52,Medium
+Rural Road,T-Junction,Rainy,Late Night (22-23),0,2,4,0,1,1.6512799999999999,27.52,Medium
+National Highway,No Junction,Windy,Late Night (22-23),1,2,4,0,1,1.6512799999999999,27.52,Medium
+State Highway,T-Junction,Rainy,Late Night (22-23),1,2,4,0,1,1.6512799999999999,27.52,Medium
+National Highway,Four Arm Junction,Windy,Late Night (22-23),0,2,4,0,1,1.6512799999999999,27.52,Medium
+Urban Road,T-Junction,Windy,Night (00-05),1,2,4,0,1,1.6512799999999999,27.52,Medium
+Urban Road,Roundabout,Windy,Late Night (22-23),0,2,4,0,1,1.6512799999999999,27.52,Medium
+Rural Road,Roundabout,Windy,Late Night (22-23),0,2,4,0,1,1.6512799999999999,27.52,Medium
+Rural Road,T-Junction,Rainy,Late Night (22-23),1,2,4,0,1,1.6512799999999999,27.52,Medium
+Urban Road,Roundabout,Rainy,Late Night (22-23),1,2,4,0,1,1.6512799999999999,27.52,Medium
+National Highway,Roundabout,Clear,Late Night (22-23),1,2,4,0,1,1.6512799999999999,27.52,Medium
+State Highway,Four Arm Junction,Clear,Night (00-05),0,19,32,1,4,1.6486222222222222,27.48,Medium
+State Highway,No Junction,Clear,Night (00-05),0,36,60,0,12,1.6480181818181818,27.47,Medium
+Rural Road,Four Arm Junction,Rainy,Morning (06-11),0,33,55,2,6,1.6466536585365854,27.44,Medium
+Urban Road,Four Arm Junction,Rainy,Late Night (22-23),0,16,27,1,3,1.6463666666666665,27.44,Medium
+National Highway,Four Arm Junction,Rainy,Morning (06-11),0,58,96,2,14,1.6441333333333332,27.4,Medium
+National Highway,T-Junction,Windy,Morning (06-11),1,13,22,1,2,1.6434666666666666,27.39,Medium
+State Highway,Roundabout,Windy,Morning (06-11),0,10,17,1,1,1.6396,27.33,Medium
+State Highway,T-Junction,Clear,Evening (17-21),1,60,99,3,12,1.6398941176470587,27.33,Medium
+National Highway,T-Junction,Rainy,Afternoon (12-16),1,21,35,2,2,1.6383724137931035,27.31,Medium
+Rural Road,T-Junction,Foggy,Evening (17-21),1,7,12,1,0,1.6341866666666667,27.24,Medium
+Urban Road,Four Arm Junction,Windy,Evening (17-21),0,26,43,1,6,1.6327294117647058,27.21,Medium
+Rural Road,Roundabout,Clear,Morning (06-11),1,15,25,0,5,1.6309913043478261,27.18,Medium
+Urban Road,No Junction,Windy,Afternoon (12-16),0,42,69,3,6,1.630256,27.17,Medium
+State Highway,No Junction,Clear,Evening (17-21),1,115,188,5,24,1.6301853658536585,27.17,Medium
+Urban Road,Four Arm Junction,Foggy,Morning (06-11),1,23,38,1,5,1.6294451612903225,27.16,Medium
+Urban Road,Roundabout,Foggy,Morning (06-11),0,28,46,2,4,1.6253555555555554,27.09,Medium
+State Highway,No Junction,Foggy,Afternoon (12-16),1,17,28,1,3,1.620512,27.01,Medium
+Rural Road,No Junction,Rainy,Night (00-05),0,9,15,0,3,1.6183999999999998,26.97,Medium
+State Highway,Four Arm Junction,Clear,Night (00-05),1,9,15,0,3,1.6183999999999998,26.97,Medium
+Urban Road,Four Arm Junction,Foggy,Evening (17-21),0,35,57,2,6,1.6165767441860466,26.94,Medium
+State Highway,T-Junction,Clear,Late Night (22-23),0,27,44,1,6,1.6146514285714286,26.91,Medium
+Rural Road,Four Arm Junction,Foggy,Morning (06-11),0,14,23,1,2,1.6142181818181818,26.9,Medium
+National Highway,No Junction,Clear,Evening (17-21),1,137,221,4,32,1.610433103448276,26.84,Medium
+Urban Road,No Junction,Clear,Night (00-05),0,78,126,4,14,1.610613953488372,26.84,Medium
+State Highway,No Junction,Clear,Evening (17-21),0,224,361,7,51,1.6099689655172416,26.83,Medium
+State Highway,Roundabout,Rainy,Evening (17-21),1,6,10,0,2,1.6080571428571429,26.8,Medium
+State Highway,Four Arm Junction,Rainy,Late Night (22-23),0,6,10,0,2,1.6080571428571429,26.8,Medium
+National Highway,T-Junction,Windy,Night (00-05),0,6,10,0,2,1.6080571428571429,26.8,Medium
+Urban Road,Roundabout,Windy,Afternoon (12-16),0,6,10,0,2,1.6080571428571429,26.8,Medium
+Urban Road,No Junction,Foggy,Late Night (22-23),1,6,10,0,2,1.6080571428571429,26.8,Medium
+Urban Road,No Junction,Foggy,Night (00-05),1,6,10,0,2,1.6080571428571429,26.8,Medium
+National Highway,Roundabout,Rainy,Evening (17-21),1,11,18,1,1,1.605936842105263,26.77,Medium
+State Highway,No Junction,Rainy,Evening (17-21),0,102,164,4,21,1.6046618181818182,26.74,Medium
+Rural Road,T-Junction,Windy,Morning (06-11),0,16,26,0,5,1.6047,26.74,Medium
+National Highway,No Junction,Windy,Afternoon (12-16),1,16,26,0,5,1.6047,26.74,Medium
+State Highway,No Junction,Rainy,Morning (06-11),1,41,66,1,10,1.6023020408163264,26.71,Medium
+National Highway,No Junction,Rainy,Late Night (22-23),1,8,13,1,0,1.59455,26.58,Medium
+State Highway,T-Junction,Foggy,Late Night (22-23),1,3,5,0,1,1.592072727272727,26.53,Medium
+National Highway,T-Junction,Rainy,Night (00-05),1,3,5,0,1,1.592072727272727,26.53,Medium
+National Highway,Roundabout,Windy,Evening (17-21),1,3,5,0,1,1.592072727272727,26.53,Medium
+National Highway,Roundabout,Windy,Afternoon (12-16),1,3,5,0,1,1.592072727272727,26.53,Medium
+National Highway,Roundabout,Rainy,Night (00-05),1,3,5,0,1,1.592072727272727,26.53,Medium
+National Highway,Roundabout,Foggy,Night (00-05),1,3,5,0,1,1.592072727272727,26.53,Medium
+Urban Road,Roundabout,Rainy,Night (00-05),0,3,5,0,1,1.592072727272727,26.53,Medium
+State Highway,No Junction,Foggy,Late Night (22-23),1,3,5,0,1,1.592072727272727,26.53,Medium
+Urban Road,T-Junction,Windy,Late Night (22-23),1,3,5,0,1,1.592072727272727,26.53,Medium
+State Highway,Four Arm Junction,Windy,Late Night (22-23),0,3,5,0,1,1.592072727272727,26.53,Medium
+State Highway,Roundabout,Windy,Late Night (22-23),0,3,5,0,1,1.592072727272727,26.53,Medium
+Rural Road,T-Junction,Rainy,Night (00-05),1,3,5,0,1,1.592072727272727,26.53,Medium
+Rural Road,Roundabout,Rainy,Morning (06-11),1,3,5,0,1,1.592072727272727,26.53,Medium
+State Highway,Roundabout,Clear,Late Night (22-23),1,3,5,0,1,1.592072727272727,26.53,Medium
+Urban Road,Four Arm Junction,Windy,Night (00-05),0,3,5,0,1,1.592072727272727,26.53,Medium
+Rural Road,Four Arm Junction,Windy,Night (00-05),0,3,5,0,1,1.592072727272727,26.53,Medium
+Rural Road,Four Arm Junction,Foggy,Late Night (22-23),0,3,5,0,1,1.592072727272727,26.53,Medium
+Rural Road,Four Arm Junction,Rainy,Late Night (22-23),1,3,5,0,1,1.592072727272727,26.53,Medium
+Rural Road,Roundabout,Rainy,Afternoon (12-16),1,3,5,0,1,1.592072727272727,26.53,Medium
+Rural Road,Roundabout,Foggy,Evening (17-21),1,3,5,0,1,1.592072727272727,26.53,Medium
+National Highway,No Junction,Clear,Morning (06-11),1,135,215,4,30,1.5909986013986015,26.52,Medium
+National Highway,Four Arm Junction,Foggy,Afternoon (12-16),0,20,32,0,6,1.5897428571428571,26.5,Medium
+Rural Road,T-Junction,Foggy,Morning (06-11),0,20,32,0,6,1.5897428571428571,26.5,Medium
+State Highway,Four Arm Junction,Rainy,Evening (17-21),0,27,43,0,8,1.58608,26.43,Medium
+State Highway,Four Arm Junction,Clear,Afternoon (12-16),0,68,108,2,15,1.5856947368421053,26.43,Medium
+Urban Road,No Junction,Rainy,Evening (17-21),0,150,238,6,29,1.5855240506329114,26.43,Medium
+Urban Road,Roundabout,Clear,Late Night (22-23),0,10,16,0,3,1.5840444444444444,26.4,Medium
+Urban Road,T-Junction,Foggy,Evening (17-21),0,34,54,0,10,1.5836380952380953,26.39,Medium
+Urban Road,T-Junction,Clear,Late Night (22-23),0,58,92,2,12,1.5835272727272727,26.39,Medium
+National Highway,Four Arm Junction,Clear,Morning (06-11),1,84,133,1,22,1.5816608695652175,26.36,Medium
+Rural Road,T-Junction,Rainy,Afternoon (12-16),1,17,27,0,5,1.580512,26.34,Medium
+National Highway,T-Junction,Windy,Morning (06-11),0,31,49,0,9,1.577251282051282,26.29,Medium
+State Highway,T-Junction,Windy,Morning (06-11),0,12,19,1,1,1.57564,26.26,Medium
+Urban Road,Roundabout,Rainy,Morning (06-11),1,12,19,1,1,1.57564,26.26,Medium
+State Highway,No Junction,Rainy,Afternoon (12-16),0,63,99,2,13,1.5706028169014083,26.18,Medium
+State Highway,T-Junction,Clear,Night (00-05),1,14,22,0,4,1.5687636363636364,26.15,Medium
+Urban Road,Roundabout,Windy,Morning (06-11),0,14,22,0,4,1.5687636363636364,26.15,Medium
+State Highway,T-Junction,Rainy,Night (00-05),0,7,11,0,2,1.5675199999999998,26.13,Medium
+Rural Road,No Junction,Rainy,Night (00-05),1,7,11,0,2,1.5675199999999998,26.13,Medium
+National Highway,T-Junction,Foggy,Night (00-05),0,7,11,0,2,1.5675199999999998,26.13,Medium
+Urban Road,T-Junction,Foggy,Late Night (22-23),0,7,11,0,2,1.5675199999999998,26.13,Medium
+Urban Road,Four Arm Junction,Foggy,Late Night (22-23),0,7,11,0,2,1.5675199999999998,26.13,Medium
+State Highway,T-Junction,Windy,Night (00-05),0,7,11,0,2,1.5675199999999998,26.13,Medium
+Urban Road,T-Junction,Foggy,Evening (17-21),1,23,36,1,4,1.5649290322580645,26.08,Medium
+National Highway,No Junction,Clear,Afternoon (12-16),0,278,434,8,58,1.5612335664335666,26.02,Medium
+Urban Road,Four Arm Junction,Foggy,Morning (06-11),0,34,53,1,7,1.5598285714285713,26.0,Medium
+National Highway,Roundabout,Clear,Morning (06-11),0,84,131,3,16,1.5599217391304347,26.0,Medium
+State Highway,T-Junction,Clear,Late Night (22-23),1,9,14,1,0,1.5595764705882351,25.99,Medium
+Rural Road,T-Junction,Rainy,Afternoon (12-16),0,18,28,0,5,1.5581846153846153,25.97,Medium
+Urban Road,Four Arm Junction,Clear,Night (00-05),1,18,28,0,5,1.5581846153846153,25.97,Medium
+Rural Road,Four Arm Junction,Clear,Evening (17-21),1,36,56,0,10,1.5571090909090908,25.95,Medium
+Rural Road,Four Arm Junction,Clear,Evening (17-21),0,108,168,2,25,1.5561448275862069,25.94,Medium
+National Highway,T-Junction,Clear,Morning (06-11),0,202,314,6,41,1.5548228571428573,25.91,Medium
+State Highway,T-Junction,Foggy,Evening (17-21),1,11,17,0,3,1.5533052631578947,25.89,Medium
+State Highway,No Junction,Clear,Night (00-05),1,11,17,0,3,1.5533052631578947,25.89,Medium
+Rural Road,T-Junction,Rainy,Morning (06-11),1,11,17,0,3,1.5533052631578947,25.89,Medium
+Urban Road,T-Junction,Foggy,Morning (06-11),0,42,65,1,9,1.550256,25.84,Medium
+Rural Road,T-Junction,Foggy,Evening (17-21),0,22,34,0,6,1.5504266666666666,25.84,Medium
+Rural Road,Four Arm Junction,Windy,Morning (06-11),0,15,23,0,4,1.5440347826086955,25.73,Medium
+Rural Road,Four Arm Junction,Foggy,Evening (17-21),0,15,23,0,4,1.5440347826086955,25.73,Medium
+Urban Road,T-Junction,Clear,Late Night (22-23),1,15,23,0,4,1.5440347826086955,25.73,Medium
+Rural Road,No Junction,Clear,Late Night (22-23),1,15,23,0,4,1.5440347826086955,25.73,Medium
+State Highway,No Junction,Windy,Evening (17-21),1,15,23,0,4,1.5440347826086955,25.73,Medium
+State Highway,No Junction,Rainy,Morning (06-11),0,85,131,2,18,1.5431483870967742,25.72,Medium
+Rural Road,T-Junction,Clear,Morning (06-11),0,120,185,3,25,1.54306875,25.72,Medium
+Rural Road,Four Arm Junction,Windy,Afternoon (12-16),1,4,6,0,1,1.5427333333333333,25.71,Medium
+Rural Road,Four Arm Junction,Windy,Late Night (22-23),0,4,6,0,1,1.5427333333333333,25.71,Medium
+State Highway,Roundabout,Foggy,Afternoon (12-16),1,4,6,0,1,1.5427333333333333,25.71,Medium
+National Highway,Four Arm Junction,Foggy,Late Night (22-23),1,4,6,0,1,1.5427333333333333,25.71,Medium
+State Highway,Four Arm Junction,Rainy,Night (00-05),1,4,6,0,1,1.5427333333333333,25.71,Medium
+State Highway,T-Junction,Foggy,Night (00-05),1,4,6,0,1,1.5427333333333333,25.71,Medium
+Rural Road,Roundabout,Windy,Morning (06-11),0,4,6,0,1,1.5427333333333333,25.71,Medium
+Rural Road,Roundabout,Foggy,Morning (06-11),1,4,6,0,1,1.5427333333333333,25.71,Medium
+Rural Road,Roundabout,Windy,Evening (17-21),0,4,6,0,1,1.5427333333333333,25.71,Medium
+Rural Road,No Junction,Windy,Late Night (22-23),0,4,6,0,1,1.5427333333333333,25.71,Medium
+Urban Road,No Junction,Clear,Late Night (22-23),0,76,117,1,18,1.5418190476190476,25.7,Medium
+Rural Road,T-Junction,Rainy,Morning (06-11),0,32,49,1,6,1.53782,25.63,Medium
+Urban Road,No Junction,Rainy,Night (00-05),1,19,29,0,5,1.537511111111111,25.63,Medium
+Urban Road,T-Junction,Rainy,Afternoon (12-16),0,58,89,1,13,1.5380727272727273,25.63,Medium
+Urban Road,Four Arm Junction,Rainy,Morning (06-11),0,62,95,3,9,1.5358971428571428,25.6,Medium
+Urban Road,Four Arm Junction,Windy,Late Night (22-23),0,8,12,0,2,1.53205,25.53,Medium
+National Highway,Roundabout,Windy,Afternoon (12-16),0,12,18,0,3,1.5256399999999999,25.43,Medium
+Urban Road,Roundabout,Foggy,Afternoon (12-16),0,12,18,0,3,1.5256399999999999,25.43,Medium
+Urban Road,T-Junction,Windy,Evening (17-21),1,12,18,0,3,1.5256399999999999,25.43,Medium
+Rural Road,No Junction,Rainy,Afternoon (12-16),1,14,21,1,1,1.523309090909091,25.39,Medium
+Rural Road,Four Arm Junction,Rainy,Morning (06-11),1,14,21,1,1,1.523309090909091,25.39,Medium
+State Highway,T-Junction,Clear,Evening (17-21),0,142,216,6,22,1.5234186666666667,25.39,Medium
+Urban Road,No Junction,Foggy,Evening (17-21),0,89,135,0,23,1.5207505154639176,25.35,Medium
+Rural Road,No Junction,Windy,Evening (17-21),0,18,27,1,2,1.519723076923077,25.33,Medium
+Urban Road,Four Arm Junction,Clear,Morning (06-11),0,213,323,4,45,1.5181574660633486,25.3,Medium
+Urban Road,Four Arm Junction,Windy,Morning (06-11),0,24,36,0,6,1.516025,25.27,Medium
+State Highway,No Junction,Clear,Late Night (22-23),1,24,36,0,6,1.516025,25.27,Medium
+Urban Road,No Junction,Foggy,Evening (17-21),1,38,57,1,7,1.5111478260869564,25.19,Medium
+State Highway,No Junction,Clear,Afternoon (12-16),1,76,114,2,14,1.5061047619047618,25.1,Medium
+National Highway,No Junction,Clear,Afternoon (12-16),1,106,159,1,24,1.504498245614035,25.07,Medium
+Urban Road,Roundabout,Windy,Afternoon (12-16),1,5,7,0,1,1.5009846153846154,25.02,Medium
+State Highway,Roundabout,Foggy,Night (00-05),1,1,1,0,0,1.5014222222222222,25.02,Medium
+State Highway,Roundabout,Foggy,Morning (06-11),1,1,1,0,0,1.5014222222222222,25.02,Medium
+National Highway,Roundabout,Foggy,Late Night (22-23),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,Roundabout,Windy,Afternoon (12-16),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Urban Road,Roundabout,Windy,Late Night (22-23),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,Roundabout,Foggy,Night (00-05),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,No Junction,Rainy,Late Night (22-23),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,No Junction,Foggy,Late Night (22-23),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,Roundabout,Rainy,Late Night (22-23),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,No Junction,Windy,Night (00-05),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,Roundabout,Rainy,Night (00-05),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,Four Arm Junction,Windy,Evening (17-21),1,5,7,0,1,1.5009846153846154,25.02,Medium
+Rural Road,Roundabout,Clear,Late Night (22-23),0,5,7,0,1,1.5009846153846154,25.02,Medium
+Rural Road,Roundabout,Windy,Morning (06-11),1,1,1,0,0,1.5014222222222222,25.02,Medium
+State Highway,Roundabout,Windy,Night (00-05),0,1,1,0,0,1.5014222222222222,25.02,Medium
+Rural Road,T-Junction,Windy,Late Night (22-23),1,1,1,0,0,1.5014222222222222,25.02,Medium
+State Highway,Roundabout,Rainy,Night (00-05),1,1,1,0,0,1.5014222222222222,25.02,Medium
+Urban Road,Roundabout,Rainy,Afternoon (12-16),0,17,25,0,4,1.5005119999999998,25.01,Medium
+Urban Road,T-Junction,Foggy,Afternoon (12-16),1,9,13,0,2,1.5007529411764704,25.01,Medium
+Rural Road,Four Arm Junction,Clear,Night (00-05),0,13,19,0,3,1.5006095238095238,25.01,Medium
+Rural Road,No Junction,Foggy,Morning (06-11),0,29,43,0,7,1.5003459459459458,25.01,Medium
+Rural Road,No Junction,Windy,Afternoon (12-16),0,17,25,0,4,1.5005119999999998,25.01,Medium
+State Highway,Roundabout,Rainy,Morning (06-11),1,9,13,0,2,1.5007529411764704,25.01,Medium
+Urban Road,T-Junction,Rainy,Evening (17-21),0,83,124,1,18,1.5001406593406594,25.0,Medium
+State Highway,No Junction,Foggy,Morning (06-11),0,51,76,1,10,1.5002169491525423,25.0,Medium
+National Highway,T-Junction,Clear,Morning (06-11),1,81,121,2,15,1.500143820224719,25.0,Medium
+National Highway,T-Junction,Clear,Afternoon (12-16),0,145,216,3,28,1.4935477124183008,24.89,Low
+National Highway,Roundabout,Clear,Afternoon (12-16),0,58,86,2,9,1.4926181818181818,24.88,Low
+Urban Road,T-Junction,Clear,Evening (17-21),1,107,159,2,21,1.491415652173913,24.86,Low
+National Highway,Four Arm Junction,Clear,Afternoon (12-16),1,46,68,0,11,1.4909777777777777,24.85,Low
+State Highway,No Junction,Clear,Afternoon (12-16),0,193,287,4,37,1.490113432835821,24.84,Low
+State Highway,T-Junction,Clear,Afternoon (12-16),1,36,53,1,6,1.4889272727272727,24.82,Low
+Rural Road,Roundabout,Clear,Morning (06-11),0,38,56,0,9,1.489408695652174,24.82,Low
+State Highway,No Junction,Windy,Evening (17-21),0,30,44,0,7,1.487178947368421,24.79,Low
+Rural Road,Four Arm Junction,Rainy,Afternoon (12-16),0,18,26,0,4,1.4812615384615384,24.69,Low
+Urban Road,Four Arm Junction,Windy,Afternoon (12-16),0,18,26,0,4,1.4812615384615384,24.69,Low
+State Highway,No Junction,Rainy,Late Night (22-23),0,14,20,0,3,1.4778545454545453,24.63,Low
+Urban Road,T-Junction,Foggy,Night (00-05),0,14,20,0,3,1.4778545454545453,24.63,Low
+Rural Road,T-Junction,Windy,Afternoon (12-16),0,14,20,0,3,1.4778545454545453,24.63,Low
+Rural Road,No Junction,Rainy,Evening (17-21),1,14,20,0,3,1.4778545454545453,24.63,Low
+Rural Road,Four Arm Junction,Foggy,Afternoon (12-16),0,14,20,0,3,1.4778545454545453,24.63,Low
+State Highway,T-Junction,Clear,Morning (06-11),1,52,76,2,7,1.4752133333333333,24.59,Low
+Urban Road,T-Junction,Foggy,Afternoon (12-16),0,48,70,0,11,1.473442857142857,24.56,Low
+Urban Road,Roundabout,Clear,Afternoon (12-16),1,29,42,1,4,1.4733189189189189,24.56,Low
+Rural Road,No Junction,Rainy,Afternoon (12-16),0,48,70,2,6,1.473442857142857,24.56,Low
+Urban Road,Four Arm Junction,Windy,Evening (17-21),1,10,14,0,2,1.4729333333333332,24.55,Low
+National Highway,Four Arm Junction,Windy,Afternoon (12-16),1,10,14,0,2,1.4729333333333332,24.55,Low
+Urban Road,Roundabout,Foggy,Morning (06-11),1,10,14,0,2,1.4729333333333332,24.55,Low
+State Highway,Four Arm Junction,Rainy,Afternoon (12-16),0,27,39,0,6,1.4717942857142856,24.53,Low
+Urban Road,T-Junction,Clear,Morning (06-11),0,241,354,7,39,1.4719389558232934,24.53,Low
+National Highway,No Junction,Windy,Morning (06-11),0,57,83,0,13,1.4694276923076923,24.49,Low
+Urban Road,No Junction,Clear,Evening (17-21),1,181,265,6,27,1.4683216931216934,24.47,Low
+Urban Road,No Junction,Rainy,Evening (17-21),1,55,80,3,5,1.468457142857143,24.47,Low
+State Highway,Four Arm Junction,Rainy,Morning (06-11),0,55,80,1,10,1.468457142857143,24.47,Low
+Urban Road,Four Arm Junction,Rainy,Afternoon (12-16),0,36,52,0,8,1.4662,24.44,Low
+Rural Road,No Junction,Clear,Evening (17-21),1,81,118,1,16,1.4664359550561799,24.44,Low
+Urban Road,No Junction,Foggy,Afternoon (12-16),1,21,30,1,2,1.465958620689655,24.43,Low
+State Highway,Four Arm Junction,Foggy,Afternoon (12-16),1,6,8,0,1,1.4651999999999998,24.42,Low
+Rural Road,T-Junction,Foggy,Night (00-05),0,6,8,0,1,1.4651999999999998,24.42,Low
+State Highway,No Junction,Rainy,Late Night (22-23),1,6,8,0,1,1.4651999999999998,24.42,Low
+Urban Road,Roundabout,Windy,Evening (17-21),1,6,8,0,1,1.4651999999999998,24.42,Low
+Urban Road,No Junction,Windy,Late Night (22-23),1,6,8,0,1,1.4651999999999998,24.42,Low
+National Highway,Roundabout,Foggy,Afternoon (12-16),1,6,8,0,1,1.4651999999999998,24.42,Low
+Rural Road,Four Arm Junction,Clear,Night (00-05),1,6,8,0,1,1.4651999999999998,24.42,Low
+Urban Road,Roundabout,Rainy,Night (00-05),1,6,8,0,1,1.4651999999999998,24.42,Low
+National Highway,Roundabout,Clear,Night (00-05),1,6,8,0,1,1.4651999999999998,24.42,Low
+National Highway,No Junction,Windy,Evening (17-21),1,19,27,0,4,1.463437037037037,24.39,Low
+State Highway,T-Junction,Windy,Evening (17-21),0,19,27,0,4,1.463437037037037,24.39,Low
+State Highway,Four Arm Junction,Foggy,Morning (06-11),0,19,27,0,4,1.463437037037037,24.39,Low
+Urban Road,T-Junction,Windy,Evening (17-21),0,30,43,1,4,1.4608631578947369,24.35,Low
+Urban Road,T-Junction,Clear,Night (00-05),1,15,21,0,3,1.4570782608695652,24.28,Low
+Rural Road,Four Arm Junction,Clear,Late Night (22-23),0,15,21,0,3,1.4570782608695652,24.28,Low
+Urban Road,No Junction,Rainy,Afternoon (12-16),0,94,136,2,16,1.456007843137255,24.27,Low
+Urban Road,Roundabout,Rainy,Evening (17-21),0,24,34,0,5,1.453525,24.23,Low
+National Highway,No Junction,Windy,Afternoon (12-16),0,35,50,1,5,1.453786046511628,24.23,Low
+Rural Road,No Junction,Foggy,Afternoon (12-16),0,24,34,0,5,1.453525,24.23,Low
+State Highway,Roundabout,Rainy,Morning (06-11),0,24,34,0,5,1.453525,24.23,Low
+Urban Road,Four Arm Junction,Rainy,Morning (06-11),1,33,47,0,7,1.451531707317073,24.19,Low
+Urban Road,Four Arm Junction,Windy,Night (00-05),1,2,2,0,0,1.4512800000000001,24.19,Low
+State Highway,Roundabout,Foggy,Late Night (22-23),0,2,2,0,0,1.4512800000000001,24.19,Low
+State Highway,Four Arm Junction,Windy,Morning (06-11),1,2,2,0,0,1.4512800000000001,24.19,Low
+State Highway,Four Arm Junction,Windy,Night (00-05),0,2,2,0,0,1.4512800000000001,24.19,Low
+Rural Road,T-Junction,Foggy,Late Night (22-23),1,2,2,0,0,1.4512800000000001,24.19,Low
+State Highway,T-Junction,Windy,Night (00-05),1,2,2,0,0,1.4512800000000001,24.19,Low
+Rural Road,Four Arm Junction,Windy,Late Night (22-23),1,2,2,0,0,1.4512800000000001,24.19,Low
+Urban Road,Roundabout,Foggy,Late Night (22-23),1,2,2,0,0,1.4512800000000001,24.19,Low
+National Highway,T-Junction,Windy,Night (00-05),1,2,2,0,0,1.4512800000000001,24.19,Low
+Urban Road,Roundabout,Foggy,Afternoon (12-16),1,2,2,0,0,1.4512800000000001,24.19,Low
+Urban Road,Roundabout,Rainy,Late Night (22-23),0,2,2,0,0,1.4512800000000001,24.19,Low
+National Highway,Roundabout,Windy,Night (00-05),1,2,2,0,0,1.4512800000000001,24.19,Low
+National Highway,Roundabout,Windy,Morning (06-11),1,2,2,0,0,1.4512800000000001,24.19,Low
+National Highway,Roundabout,Rainy,Night (00-05),0,2,2,0,0,1.4512800000000001,24.19,Low
+National Highway,Roundabout,Foggy,Late Night (22-23),0,2,2,0,0,1.4512800000000001,24.19,Low
+National Highway,Roundabout,Windy,Late Night (22-23),0,2,2,0,0,1.4512800000000001,24.19,Low
+Rural Road,Four Arm Junction,Rainy,Night (00-05),0,2,2,0,0,1.4512800000000001,24.19,Low
+Rural Road,Four Arm Junction,Rainy,Late Night (22-23),0,2,2,0,0,1.4512800000000001,24.19,Low
+State Highway,Four Arm Junction,Foggy,Night (00-05),1,2,2,0,0,1.4512800000000001,24.19,Low
+National Highway,Four Arm Junction,Foggy,Night (00-05),1,2,2,0,0,1.4512800000000001,24.19,Low
+State Highway,No Junction,Windy,Late Night (22-23),1,2,2,0,0,1.4512800000000001,24.19,Low
+Rural Road,Roundabout,Clear,Night (00-05),1,2,2,0,0,1.4512800000000001,24.19,Low
+Urban Road,T-Junction,Rainy,Night (00-05),1,11,15,0,2,1.4480421052631578,24.13,Low
+Rural Road,T-Junction,Clear,Night (00-05),1,11,15,0,2,1.4480421052631578,24.13,Low
+Rural Road,T-Junction,Rainy,Evening (17-21),1,11,15,0,2,1.4480421052631578,24.13,Low
+Urban Road,T-Junction,Windy,Afternoon (12-16),1,11,15,0,2,1.4480421052631578,24.13,Low
+National Highway,Four Arm Junction,Clear,Afternoon (12-16),0,94,135,1,18,1.4462039215686275,24.1,Low
+Rural Road,T-Junction,Clear,Late Night (22-23),0,18,25,1,1,1.4427999999999999,24.05,Low
+National Highway,T-Junction,Clear,Night (00-05),1,16,22,0,3,1.4380333333333333,23.97,Low
+Urban Road,No Junction,Rainy,Morning (06-11),1,55,78,1,9,1.436711111111111,23.95,Low
+Urban Road,Four Arm Junction,Rainy,Evening (17-21),0,55,78,1,9,1.436711111111111,23.95,Low
+Urban Road,No Junction,Clear,Late Night (22-23),1,30,42,0,6,1.4345473684210526,23.91,Low
+State Highway,No Junction,Foggy,Night (00-05),1,7,9,0,1,1.4341866666666665,23.9,Low
+State Highway,No Junction,Windy,Late Night (22-23),0,7,9,0,1,1.4341866666666665,23.9,Low
+Rural Road,Roundabout,Foggy,Morning (06-11),0,7,9,0,1,1.4341866666666665,23.9,Low
+State Highway,Four Arm Junction,Windy,Evening (17-21),1,7,9,0,1,1.4341866666666665,23.9,Low
+Rural Road,T-Junction,Clear,Evening (17-21),1,28,39,1,3,1.430911111111111,23.85,Low
+National Highway,Roundabout,Clear,Morning (06-11),1,35,49,0,7,1.4305302325581395,23.84,Low
+Urban Road,No Junction,Clear,Night (00-05),1,33,46,1,4,1.4271414634146342,23.79,Low
+Rural Road,Four Arm Junction,Clear,Morning (06-11),1,19,26,1,1,1.4264,23.77,Low
+Urban Road,Four Arm Junction,Clear,Evening (17-21),0,207,294,1,41,1.4256409302325583,23.76,Low
+National Highway,T-Junction,Windy,Evening (17-21),1,12,16,0,2,1.42564,23.76,Low
+National Highway,No Junction,Windy,Night (00-05),0,12,16,0,2,1.42564,23.76,Low
+Urban Road,No Junction,Windy,Night (00-05),0,12,16,0,2,1.42564,23.76,Low
+National Highway,T-Junction,Foggy,Afternoon (12-16),1,12,16,0,2,1.42564,23.76,Low
+Urban Road,Roundabout,Windy,Evening (17-21),0,12,16,0,2,1.42564,23.76,Low
+Urban Road,Roundabout,Clear,Evening (17-21),0,118,167,1,22,1.424704761904762,23.75,Low
+Rural Road,Roundabout,Clear,Evening (17-21),0,45,63,0,9,1.4247698113207548,23.75,Low
+State Highway,Four Arm Junction,Clear,Morning (06-11),0,114,161,1,21,1.4222360655737705,23.7,Low
+Urban Road,Four Arm Junction,Clear,Late Night (22-23),0,36,50,0,7,1.4207454545454545,23.68,Low
+State Highway,No Junction,Rainy,Night (00-05),0,17,23,0,3,1.420512,23.68,Low
+Rural Road,No Junction,Clear,Evening (17-21),0,179,253,4,27,1.4198545454545457,23.66,Low
+State Highway,T-Junction,Rainy,Evening (17-21),0,39,54,1,5,1.4151659574468085,23.59,Low
+Rural Road,No Junction,Windy,Morning (06-11),0,27,37,0,5,1.4146514285714284,23.58,Low
+Urban Road,No Junction,Windy,Evening (17-21),0,54,75,1,8,1.4114967741935485,23.52,Low
+Urban Road,Four Arm Junction,Clear,Night (00-05),0,37,51,0,7,1.4113955555555555,23.52,Low
+Rural Road,T-Junction,Foggy,Afternoon (12-16),1,3,3,0,0,1.4102545454545454,23.5,Low
+State Highway,No Junction,Windy,Night (00-05),1,3,3,0,0,1.4102545454545454,23.5,Low
+Urban Road,T-Junction,Foggy,Late Night (22-23),1,3,3,0,0,1.4102545454545454,23.5,Low
+State Highway,Roundabout,Windy,Morning (06-11),1,3,3,0,0,1.4102545454545454,23.5,Low
+State Highway,Roundabout,Windy,Evening (17-21),1,3,3,0,0,1.4102545454545454,23.5,Low
+State Highway,T-Junction,Rainy,Night (00-05),1,3,3,0,0,1.4102545454545454,23.5,Low
+Rural Road,Roundabout,Rainy,Night (00-05),0,3,3,0,0,1.4102545454545454,23.5,Low
+National Highway,Roundabout,Foggy,Morning (06-11),1,3,3,0,0,1.4102545454545454,23.5,Low
+Rural Road,No Junction,Foggy,Night (00-05),0,3,3,0,0,1.4102545454545454,23.5,Low
+State Highway,Roundabout,Foggy,Afternoon (12-16),0,3,3,0,0,1.4102545454545454,23.5,Low
+State Highway,T-Junction,Windy,Late Night (22-23),1,3,3,0,0,1.4102545454545454,23.5,Low
+Urban Road,Four Arm Junction,Windy,Late Night (22-23),1,3,3,0,0,1.4102545454545454,23.5,Low
+Rural Road,No Junction,Windy,Afternoon (12-16),1,8,10,0,1,1.40705,23.45,Low
+Urban Road,Roundabout,Rainy,Afternoon (12-16),1,8,10,0,1,1.40705,23.45,Low
+State Highway,No Junction,Windy,Night (00-05),0,8,10,0,1,1.40705,23.45,Low
+State Highway,Four Arm Junction,Rainy,Afternoon (12-16),1,8,10,0,1,1.40705,23.45,Low
+Urban Road,T-Junction,Foggy,Morning (06-11),1,13,17,0,2,1.4053714285714285,23.42,Low
+National Highway,Four Arm Junction,Windy,Afternoon (12-16),0,13,17,0,2,1.4053714285714285,23.42,Low
+Rural Road,Roundabout,Rainy,Evening (17-21),0,13,17,0,2,1.4053714285714285,23.42,Low
+State Highway,Four Arm Junction,Windy,Morning (06-11),0,13,17,0,2,1.4053714285714285,23.42,Low
+Urban Road,T-Junction,Clear,Morning (06-11),1,97,135,0,19,1.4048838095238094,23.41,Low
+Urban Road,No Junction,Windy,Afternoon (12-16),1,23,31,0,4,1.4036387096774192,23.39,Low
+Rural Road,Four Arm Junction,Rainy,Evening (17-21),0,33,45,0,6,1.4027512195121952,23.38,Low
+Urban Road,Four Arm Junction,Clear,Morning (06-11),1,61,84,1,9,1.398736231884058,23.31,Low
+Urban Road,T-Junction,Clear,Evening (17-21),0,221,307,2,38,1.395252401746725,23.25,Low
+State Highway,T-Junction,Rainy,Morning (06-11),0,39,53,0,7,1.3938893617021277,23.23,Low
+Urban Road,No Junction,Clear,Evening (17-21),0,451,627,4,78,1.393274074074074,23.22,Low
+Urban Road,Four Arm Junction,Rainy,Evening (17-21),1,24,32,0,4,1.391025,23.18,Low
+State Highway,No Junction,Clear,Morning (06-11),0,223,308,5,30,1.387501298701299,23.13,Low
+Urban Road,T-Junction,Windy,Morning (06-11),1,14,18,0,2,1.3869454545454545,23.12,Low
+Rural Road,Four Arm Junction,Windy,Afternoon (12-16),0,14,18,0,2,1.3869454545454545,23.12,Low
+State Highway,Four Arm Junction,Rainy,Morning (06-11),1,14,18,0,2,1.3869454545454545,23.12,Low
+State Highway,T-Junction,Windy,Morning (06-11),1,9,11,0,1,1.3831058823529412,23.05,Low
+Rural Road,Roundabout,Rainy,Afternoon (12-16),0,9,11,0,1,1.3831058823529412,23.05,Low
+Urban Road,Four Arm Junction,Foggy,Afternoon (12-16),1,9,11,0,1,1.3831058823529412,23.05,Low
+Urban Road,Four Arm Junction,Windy,Afternoon (12-16),1,9,11,0,1,1.3831058823529412,23.05,Low
+Urban Road,Roundabout,Rainy,Evening (17-21),1,9,11,0,1,1.3831058823529412,23.05,Low
+Rural Road,T-Junction,Clear,Evening (17-21),0,93,127,0,17,1.3813148514851485,23.02,Low
+Urban Road,Roundabout,Clear,Evening (17-21),1,33,44,1,3,1.3783609756097561,22.97,Low
+Rural Road,No Junction,Rainy,Morning (06-11),0,73,99,0,13,1.3767012345679013,22.95,Low
+State Highway,Roundabout,Foggy,Evening (17-21),1,4,4,0,0,1.3760666666666665,22.93,Low
+Rural Road,T-Junction,Windy,Night (00-05),0,4,4,0,0,1.3760666666666665,22.93,Low
+Rural Road,T-Junction,Windy,Afternoon (12-16),1,4,4,0,0,1.3760666666666665,22.93,Low
+Rural Road,Four Arm Junction,Foggy,Morning (06-11),1,4,4,0,0,1.3760666666666665,22.93,Low
+Urban Road,T-Junction,Foggy,Night (00-05),1,4,4,0,0,1.3760666666666665,22.93,Low
+National Highway,T-Junction,Rainy,Late Night (22-23),1,4,4,0,0,1.3760666666666665,22.93,Low
+Rural Road,Roundabout,Clear,Late Night (22-23),1,4,4,0,0,1.3760666666666665,22.93,Low
+Rural Road,T-Junction,Windy,Evening (17-21),1,4,4,0,0,1.3760666666666665,22.93,Low
+Urban Road,No Junction,Foggy,Morning (06-11),1,36,48,0,6,1.3752909090909091,22.92,Low
+State Highway,T-Junction,Clear,Afternoon (12-16),0,103,140,1,16,1.373989189189189,22.9,Low
+Rural Road,No Junction,Clear,Morning (06-11),1,63,85,0,11,1.373419718309859,22.89,Low
+Urban Road,Four Arm Junction,Clear,Afternoon (12-16),0,139,189,0,25,1.37083537414966,22.85,Low
+Urban Road,T-Junction,Clear,Afternoon (12-16),0,155,211,2,23,1.371244171779141,22.85,Low
+State Highway,T-Junction,Foggy,Morning (06-11),0,15,19,0,2,1.3701217391304348,22.84,Low
+Urban Road,Roundabout,Clear,Night (00-05),0,15,19,0,2,1.3701217391304348,22.84,Low
+Urban Road,No Junction,Clear,Morning (06-11),0,438,598,4,70,1.3688627802690583,22.81,Low
+State Highway,No Junction,Windy,Afternoon (12-16),0,26,34,0,4,1.3680235294117646,22.8,Low
+Rural Road,No Junction,Clear,Afternoon (12-16),1,54,72,0,9,1.3631096774193547,22.72,Low
+Urban Road,T-Junction,Clear,Afternoon (12-16),1,65,87,0,11,1.3631890410958905,22.72,Low
+Rural Road,T-Junction,Rainy,Evening (17-21),0,32,42,0,5,1.36282,22.71,Low
+State Highway,T-Junction,Rainy,Afternoon (12-16),1,10,12,0,1,1.361822222222222,22.7,Low
+Rural Road,No Junction,Foggy,Evening (17-21),1,10,12,0,1,1.361822222222222,22.7,Low
+Rural Road,Four Arm Junction,Foggy,Evening (17-21),1,10,12,0,1,1.361822222222222,22.7,Low
+Urban Road,T-Junction,Rainy,Morning (06-11),1,27,35,0,4,1.3575085714285713,22.63,Low
+Rural Road,Roundabout,Rainy,Morning (06-11),0,16,20,0,2,1.3547,22.58,Low
+National Highway,T-Junction,Clear,Late Night (22-23),1,16,20,0,2,1.3547,22.58,Low
+Urban Road,Four Arm Junction,Rainy,Afternoon (12-16),1,16,20,0,2,1.3547,22.58,Low
+Urban Road,No Junction,Clear,Afternoon (12-16),0,316,425,5,42,1.3503481481481483,22.51,Low
+State Highway,No Junction,Clear,Morning (06-11),1,125,167,2,16,1.3497203007518797,22.5,Low
+Urban Road,Four Arm Junction,Windy,Morning (06-11),1,5,5,0,0,1.3471384615384614,22.45,Low
+State Highway,T-Junction,Windy,Evening (17-21),1,5,5,0,0,1.3471384615384614,22.45,Low
+Rural Road,Four Arm Junction,Clear,Late Night (22-23),1,5,5,0,0,1.3471384615384614,22.45,Low
+Urban Road,No Junction,Windy,Evening (17-21),1,31,40,1,2,1.3464820512820512,22.44,Low
+Urban Road,No Junction,Windy,Morning (06-11),1,31,40,1,2,1.3464820512820512,22.44,Low
+Rural Road,Four Arm Junction,Windy,Evening (17-21),0,11,13,0,1,1.342778947368421,22.38,Low
+Rural Road,No Junction,Windy,Morning (06-11),1,11,13,0,1,1.342778947368421,22.38,Low
+Rural Road,No Junction,Windy,Evening (17-21),1,11,13,0,1,1.342778947368421,22.38,Low
+Rural Road,Roundabout,Clear,Afternoon (12-16),1,17,21,0,2,1.340512,22.34,Low
+National Highway,Roundabout,Rainy,Afternoon (12-16),0,17,21,0,2,1.340512,22.34,Low
+Urban Road,No Junction,Clear,Morning (06-11),1,182,242,2,25,1.339541052631579,22.33,Low
+Urban Road,No Junction,Rainy,Morning (06-11),0,135,179,2,17,1.3392503496503496,22.32,Low
+Urban Road,No Junction,Clear,Afternoon (12-16),1,132,175,1,19,1.3393771428571428,22.32,Low
+Rural Road,No Junction,Clear,Night (00-05),0,35,45,0,5,1.337506976744186,22.29,Low
+Urban Road,Roundabout,Clear,Afternoon (12-16),0,78,102,0,12,1.3315441860465116,22.19,Low
+Urban Road,T-Junction,Rainy,Afternoon (12-16),1,30,38,0,4,1.3292842105263158,22.15,Low
+Urban Road,Roundabout,Clear,Morning (06-11),0,91,119,0,14,1.3284121212121212,22.14,Low
+Rural Road,Roundabout,Clear,Afternoon (12-16),0,21,26,1,0,1.3280275862068964,22.13,Low
+National Highway,Four Arm Junction,Clear,Night (00-05),1,18,22,0,2,1.3274153846153847,22.12,Low
+National Highway,No Junction,Windy,Morning (06-11),1,18,22,0,2,1.3274153846153847,22.12,Low
+State Highway,T-Junction,Clear,Morning (06-11),0,153,201,0,24,1.3261664596273293,22.1,Low
+Urban Road,No Junction,Windy,Morning (06-11),0,46,59,1,4,1.324311111111111,22.07,Low
+State Highway,T-Junction,Windy,Late Night (22-23),0,6,6,0,0,1.322342857142857,22.04,Low
+Rural Road,Roundabout,Rainy,Evening (17-21),1,6,6,0,0,1.322342857142857,22.04,Low
+State Highway,Four Arm Junction,Windy,Afternoon (12-16),1,6,6,0,0,1.322342857142857,22.04,Low
+National Highway,Roundabout,Clear,Afternoon (12-16),1,25,31,0,3,1.318569696969697,21.98,Low
+Rural Road,No Junction,Clear,Morning (06-11),0,199,260,3,23,1.3164869565217392,21.94,Low
+Urban Road,No Junction,Foggy,Afternoon (12-16),0,57,73,0,8,1.3155815384615384,21.93,Low
+State Highway,No Junction,Windy,Morning (06-11),1,19,23,0,2,1.3152888888888887,21.92,Low
+State Highway,No Junction,Foggy,Morning (06-11),1,26,32,0,3,1.3092,21.82,Low
+Rural Road,T-Junction,Clear,Afternoon (12-16),1,26,32,0,3,1.3092,21.82,Low
+Urban Road,Four Arm Junction,Clear,Afternoon (12-16),1,59,75,0,8,1.3061611940298508,21.77,Low
+Rural Road,Four Arm Junction,Clear,Morning (06-11),0,79,101,0,11,1.3047448275862068,21.75,Low
+Urban Road,T-Junction,Clear,Night (00-05),0,40,50,0,5,1.30235,21.71,Low
+Rural Road,Four Arm Junction,Windy,Morning (06-11),1,7,7,0,0,1.3008533333333332,21.68,Low
+State Highway,Roundabout,Windy,Afternoon (12-16),0,7,7,0,0,1.3008533333333332,21.68,Low
+Rural Road,No Junction,Clear,Afternoon (12-16),0,128,164,0,18,1.2978882352941177,21.63,Low
+Urban Road,Roundabout,Rainy,Morning (06-11),0,35,43,0,4,1.2909953488372092,21.52,Low
+Rural Road,Four Arm Junction,Clear,Afternoon (12-16),0,50,62,0,6,1.2847034482758621,21.41,Low
+Rural Road,No Junction,Clear,Night (00-05),1,15,17,0,1,1.2831652173913042,21.39,Low
+National Highway,Roundabout,Windy,Morning (06-11),0,8,8,0,0,1.28205,21.37,Low
+Rural Road,Roundabout,Clear,Night (00-05),0,8,8,0,0,1.28205,21.37,Low
+State Highway,Roundabout,Clear,Afternoon (12-16),1,8,8,0,0,1.28205,21.37,Low
+Urban Road,T-Junction,Rainy,Morning (06-11),0,83,104,1,8,1.2803604395604395,21.34,Low
+Urban Road,Roundabout,Clear,Morning (06-11),1,45,55,0,5,1.2738264150943397,21.23,Low
+Rural Road,T-Junction,Clear,Morning (06-11),1,38,46,0,4,1.2720173913043478,21.2,Low
+National Highway,Roundabout,Rainy,Morning (06-11),1,9,9,0,0,1.2654588235294117,21.09,Low
+Urban Road,T-Junction,Windy,Night (00-05),0,10,10,0,0,1.250711111111111,20.85,Low
+Urban Road,T-Junction,Windy,Afternoon (12-16),0,18,20,0,1,1.2504923076923076,20.84,Low
+Urban Road,T-Junction,Windy,Morning (06-11),0,27,31,0,2,1.2432228571428572,20.72,Low
+Rural Road,T-Junction,Clear,Afternoon (12-16),0,65,77,0,6,1.2262027397260273,20.44,Low
+State Highway,Roundabout,Clear,Afternoon (12-16),0,56,64,0,4,1.1955125,19.93,Low
+Rural Road,Four Arm Junction,Clear,Afternoon (12-16),1,23,23,0,0,1.145574193548387,19.09,Low
