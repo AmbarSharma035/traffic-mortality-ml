@@ -7,13 +7,12 @@ venv/
 __pycache__/
 *.py[cod]
 
-# Dataset files (keep documentation and scripts)
-data/raw/*
-data/processed/*.csv
+# All CSV files
+*.csv
 
-# Trained model artifacts
-models/*.joblib
-models/*.pkl
+# All trained model files
+*.joblib
+*.pkl
 
 # Backup files
 *_backup.py
@@ -23,7 +22,7 @@ models/*.pkl
 .env
 .streamlit/secrets.toml
 
-# Local editor and OS files
+# IDE and OS files
 .vscode/
 .DS_Store
 Thumbs.db
