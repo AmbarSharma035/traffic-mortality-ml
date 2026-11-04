@@ -27,6 +27,7 @@ from src.models.risk_model import score_segment
 from src.models.severity_model import predict_single
 from src.features.feature_engineering import add_derived_features
 
+
 st.set_page_config(
     page_title="Traffic Mortality Reduction Dashboard",
     layout="wide",
@@ -34,37 +35,95 @@ st.set_page_config(
 
 st.title("Reducing Traffic Mortality Using Machine Learning")
 
-st.caption(
-    "UK STATS19 data | Severity Prediction | Risk Scoring | "
-    "Hotspot Detection | Model Performance"
-)
-
 
 # --------------------------------------------------
 # LOAD DATA AND MODEL ARTIFACTS
 # --------------------------------------------------
 
-@st.cache_data
+@st.cache_data(show_spinner="Loading district names...")
 def load_districts():
-    """Load district choices from the prepared real dataset."""
+    """Load local authority district names from the cleaned STATS19 CSV."""
 
-    if not config.DATA_PROCESSED_PATH.exists():
+    csv_path = (
+        PROJECT_ROOT
+        / "data"
+        / "processed"
+        / "stats19_clean.csv"
+    )
+
+    if not csv_path.is_file():
+        st.warning(
+            "District list unavailable: "
+            "data/processed/stats19_clean.csv "
+            "was not found in the deployed repository."
+        )
         return ["Unknown"]
 
-    df = pd.read_csv(
-        config.DATA_PROCESSED_PATH,
-        usecols=["city"],
-    )
+    try:
+        # Read the CSV header first.
+        header = pd.read_csv(csv_path, nrows=0)
 
-    districts = (
-        df["city"]
-        .dropna()
-        .astype(str)
-        .unique()
-        .tolist()
-    )
+        columns_by_lower = {
+            str(column).strip().lower(): column
+            for column in header.columns
+        }
 
-    return sorted(districts) if districts else ["Unknown"]
+        # Support the possible district column names.
+        district_column = next(
+            (
+                columns_by_lower[name]
+                for name in (
+                    "city",
+                    "district",
+                    "local_authority_district",
+                )
+                if name in columns_by_lower
+            ),
+            None,
+        )
+
+        if district_column is None:
+            st.warning(
+                "District list unavailable. The cleaned CSV "
+                "does not contain a recognised district column. "
+                f"Available columns: {', '.join(map(str, header.columns))}"
+            )
+            return ["Unknown"]
+
+        district_series = pd.read_csv(
+            csv_path,
+            usecols=[district_column],
+            low_memory=False,
+        )[district_column]
+
+        districts = (
+            district_series
+            .dropna()
+            .astype(str)
+            .str.strip()
+        )
+
+        districts = sorted(
+            value
+            for value in districts.unique().tolist()
+            if value
+            and value.lower() not in {"unknown", "nan", "none"}
+        )
+
+        if not districts:
+            st.warning(
+                "The district column was found, "
+                "but it contains no usable district names."
+            )
+            return ["Unknown"]
+
+        return districts
+
+    except Exception as error:
+        st.warning(
+            f"Could not load district names from the cleaned CSV: {error}"
+        )
+        return ["Unknown"]
 
 
 @st.cache_resource
@@ -87,15 +146,25 @@ def load_artifacts():
     if missing:
         return None, missing
 
-    severity_bundle = joblib.load(config.SEVERITY_MODEL_PATH)
+    severity_bundle = joblib.load(
+        config.SEVERITY_MODEL_PATH
+    )
 
-    risk_model = joblib.load(config.RISK_MODEL_PATH)
+    risk_model = joblib.load(
+        config.RISK_MODEL_PATH
+    )
 
-    risk_lookup = pd.read_csv(config.RISK_LOOKUP_PATH)
+    risk_lookup = pd.read_csv(
+        config.RISK_LOOKUP_PATH
+    )
 
-    hotspots = pd.read_csv(config.HOTSPOT_TABLE_PATH)
+    hotspots = pd.read_csv(
+        config.HOTSPOT_TABLE_PATH
+    )
 
-    background = joblib.load(config.SHAP_BACKGROUND_PATH)
+    background = joblib.load(
+        config.SHAP_BACKGROUND_PATH
+    )
 
     return {
         "severity_pipeline": severity_bundle["pipeline"],
@@ -132,7 +201,9 @@ artifacts, missing_files = load_artifacts()
 
 if artifacts is None:
 
-    st.error("Required trained model artifacts were not found.")
+    st.error(
+        "Required trained model artifacts were not found."
+    )
 
     st.write("Missing files:")
 
@@ -140,8 +211,9 @@ if artifacts is None:
         st.write(f"- `{file}`")
 
     st.info(
-        "Run `python main.py` from the project root after "
-        "checking all pipeline dependencies."
+        "The trained model artifacts must be made available "
+        "to the application. They are not automatically created "
+        "when Streamlit starts."
     )
 
     st.stop()
@@ -177,8 +249,14 @@ with tab_severity:
         "recorded road, weather, lighting and time conditions."
     )
 
+    selected_model_display = (
+        str(artifacts["severity_model_name"])
+        .replace("_", " ")
+        .title()
+    )
+
     st.caption(
-        f"Selected model: {artifacts['severity_model_name']}"
+        f"Selected model: {selected_model_display}"
     )
 
     col1, col2, col3 = st.columns(3)
@@ -245,7 +323,7 @@ with tab_severity:
         type="primary",
     ):
 
-        # Construct a date matching the selected weekend status.
+        # Saturday represents weekend; Monday represents weekday.
         selected_date = (
             pd.Timestamp("2024-01-06")
             if is_weekend
@@ -292,7 +370,8 @@ with tab_severity:
 
                 st.caption(
                     "The recall-oriented decision flags Fatal when "
-                    f"P(Fatal) >= {config.FATAL_DECISION_THRESHOLD:.0%}."
+                    f"P(Fatal) >= "
+                    f"{config.FATAL_DECISION_THRESHOLD:.0%}."
                 )
 
                 st.write("Class probabilities")
@@ -305,15 +384,19 @@ with tab_severity:
 
             with right:
 
-                st.subheader("Why did the model predict this?")
+                st.subheader(
+                    "Why did the model predict this?"
+                )
 
                 try:
 
-                    shap_explainer, lime_explainer, lime_encoders = (
-                        load_explainers(
-                            artifacts["severity_pipeline"],
-                            artifacts["background"],
-                        )
+                    (
+                        shap_explainer,
+                        lime_explainer,
+                        lime_encoders,
+                    ) = load_explainers(
+                        artifacts["severity_pipeline"],
+                        artifacts["background"],
                     )
 
                     from src.explainability.explain import (
@@ -328,7 +411,9 @@ with tab_severity:
                         class_idx=2,
                     )
 
-                    st.write("SHAP explanation for Fatal class")
+                    st.write(
+                        "SHAP explanation for Fatal class"
+                    )
 
                     st.bar_chart(shap_values)
 
@@ -458,7 +543,9 @@ with tab_risk:
 
     st.divider()
 
-    st.subheader("Highest-scoring historical segments")
+    st.subheader(
+        "Highest-scoring historical segments"
+    )
 
     lookup = artifacts["risk_lookup"]
 
@@ -474,7 +561,9 @@ with tab_risk:
 
     else:
 
-        st.info("No historical risk segments are available.")
+        st.info(
+            "No historical risk segments are available."
+        )
 
 
 # ==================================================
@@ -494,7 +583,9 @@ with tab_hotspot:
 
     if hotspots.empty:
 
-        st.warning("No hotspot records are available.")
+        st.warning(
+            "No hotspot records are available."
+        )
 
     else:
 
@@ -598,13 +689,17 @@ with tab_performance:
 
             metrics = json.load(file)
 
-        st.subheader("Severity classifier benchmark")
+        st.subheader(
+            "Severity classifier benchmark"
+        )
 
         rows = []
 
         for name, model_metrics in metrics["severity"].items():
 
-            roc_auc = model_metrics.get("roc_auc_ovr")
+            roc_auc = model_metrics.get(
+                "roc_auc_ovr"
+            )
 
             rows.append({
                 "Model": name,
@@ -625,15 +720,23 @@ with tab_performance:
             use_container_width=True,
         )
 
+        selected_model_display = (
+            str(metrics["severity_best_model"])
+            .replace("_", " ")
+            .title()
+        )
+
         st.success(
-            f"Selected model: {metrics['severity_best_model']}"
+            f"Selected model: {selected_model_display}"
         )
 
         st.caption(
             "The selected classifier is ranked primarily by Fatal recall."
         )
 
-        st.subheader("Cross-validation Fatal recall")
+        st.subheader(
+            "Cross-validation Fatal recall"
+        )
 
         cv_scores = metrics.get(
             "severity_cv_fatal_recall",
@@ -652,7 +755,9 @@ with tab_performance:
                 )
             )
 
-        st.subheader("Hotspot clustering results")
+        st.subheader(
+            "Hotspot clustering results"
+        )
 
         hotspot_metrics = metrics.get("hotspot")
 
@@ -663,7 +768,8 @@ with tab_performance:
     else:
 
         st.warning(
-            "metrics.json was not found. Run the training pipeline first."
+            "metrics.json was not found. "
+            "Run the training pipeline first."
         )
 
 
@@ -674,8 +780,8 @@ with tab_performance:
 st.divider()
 
 st.caption(
-    "Research prototype using real UK STATS19 police-reported "
-    "personal-injury collision records, 2021–2025. "
+    "Research prototype using real UK STATS19 "
+    "police-reported personal-injury collision records, 2021–2025. "
     "Model outputs are analytical estimates, not causal conclusions "
     "or official road-safety risk rates."
 )
