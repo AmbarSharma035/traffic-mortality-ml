@@ -1,16 +1,29 @@
-__pycache__/
-*.pyc
-.venv/
+
+# Virtual environments
 venv/
-.env
-data/raw/*.csv
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Dataset files (keep documentation and scripts)
+data/raw/*
 data/processed/*.csv
 
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-!models/.gitkeep
+# Trained model artifacts
+models/*.joblib
+models/*.pkl
 
-.pytest_cache/
-.ipynb_checkpoints/
-*.egg-info/
+# Backup files
+*_backup.py
+*.bak
+
+# Secrets
+.env
+.streamlit/secrets.toml
+
+# Local editor and OS files
+.vscode/
 .DS_Store
+Thumbs.db
