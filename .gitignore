@@ -7,8 +7,7 @@ venv/
 __pycache__/
 *.py[cod]
 
-# All CSV files
-*.csv
+
 
 # All trained model files
 *.joblib
