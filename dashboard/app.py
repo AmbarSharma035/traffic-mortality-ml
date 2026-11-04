@@ -1,19 +1,15 @@
-"""
-Stakeholder-facing dashboard (slide 12 / SRS section 3.9).
 
+"""
+Stakeholder-facing dashboard for the UK STATS19 Traffic Mortality project.
+
+Run from the project root:
     streamlit run dashboard/app.py
 
-Loads the artifacts main.py already trained and saved into models/ -
-it does NOT retrain anything, so it starts in a couple of seconds. Run
-`python main.py` at least once before this.
-
-Four tabs, one per audience-facing concern:
-  1. Severity Prediction  - score one hypothetical accident + SHAP/LIME "why"
-  2. Risk Scoring         - score a road/time/weather combination
-  3. Hotspot Map          - Folium map of ranked black-spots
-  4. Model Performance    - the benchmark table used to pick the winning model
+The dashboard loads saved model artifacts. It does not retrain models.
 """
+
 import sys
+import json
 from pathlib import Path
 
 import joblib
@@ -21,207 +17,665 @@ import pandas as pd
 import streamlit as st
 from streamlit_folium import st_folium
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# Add project root to Python path.
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 
 import config
-from src.explainability.explain import (
-    build_lime_explainer, build_shap_explainer, global_feature_importance,
-    local_explanation_lime, local_explanation_shap,
-)
+
 from src.models.risk_model import score_segment
 from src.models.severity_model import predict_single
+from src.features.feature_engineering import add_derived_features
 
-st.set_page_config(page_title="Traffic Mortality Reduction Dashboard", layout="wide")
+st.set_page_config(
+    page_title="Traffic Mortality Reduction Dashboard",
+    layout="wide",
+)
+
+st.title("Reducing Traffic Mortality Using Machine Learning")
+
+st.caption(
+    "UK STATS19 data | Severity Prediction | Risk Scoring | "
+    "Hotspot Detection | Model Performance"
+)
+
+
+# --------------------------------------------------
+# LOAD DATA AND MODEL ARTIFACTS
+# --------------------------------------------------
+
+@st.cache_data
+def load_districts():
+    """Load district choices from the prepared real dataset."""
+
+    if not config.DATA_PROCESSED_PATH.exists():
+        return ["Unknown"]
+
+    df = pd.read_csv(
+        config.DATA_PROCESSED_PATH,
+        usecols=["city"],
+    )
+
+    districts = (
+        df["city"]
+        .dropna()
+        .astype(str)
+        .unique()
+        .tolist()
+    )
+
+    return sorted(districts) if districts else ["Unknown"]
 
 
 @st.cache_resource
 def load_artifacts():
-    missing = [p for p in [config.SEVERITY_MODEL_PATH, config.RISK_MODEL_PATH,
-                            config.HOTSPOT_TABLE_PATH, config.SHAP_BACKGROUND_PATH]
-               if not p.exists()]
+
+    required_files = [
+        config.SEVERITY_MODEL_PATH,
+        config.RISK_MODEL_PATH,
+        config.RISK_LOOKUP_PATH,
+        config.HOTSPOT_TABLE_PATH,
+        config.SHAP_BACKGROUND_PATH,
+    ]
+
+    missing = [
+        str(path)
+        for path in required_files
+        if not path.exists()
+    ]
+
     if missing:
-        return None
+        return None, missing
+
     severity_bundle = joblib.load(config.SEVERITY_MODEL_PATH)
+
     risk_model = joblib.load(config.RISK_MODEL_PATH)
+
+    risk_lookup = pd.read_csv(config.RISK_LOOKUP_PATH)
+
     hotspots = pd.read_csv(config.HOTSPOT_TABLE_PATH)
+
     background = joblib.load(config.SHAP_BACKGROUND_PATH)
+
     return {
         "severity_pipeline": severity_bundle["pipeline"],
         "severity_model_name": severity_bundle["model_name"],
         "risk_model": risk_model,
+        "risk_lookup": risk_lookup,
         "hotspots": hotspots,
         "background": background,
-    }
+    }, []
 
 
 @st.cache_resource
 def load_explainers(_pipeline, _background):
-    shap_explainer = build_shap_explainer(_pipeline, _background)
-    lime_explainer, lime_encoders = build_lime_explainer(_pipeline, _background)
+
+    from src.explainability.explain import (
+        build_shap_explainer,
+        build_lime_explainer,
+    )
+
+    shap_explainer = build_shap_explainer(
+        _pipeline,
+        _background,
+    )
+
+    lime_explainer, lime_encoders = build_lime_explainer(
+        _pipeline,
+        _background,
+    )
+
     return shap_explainer, lime_explainer, lime_encoders
 
 
-artifacts = load_artifacts()
-
-st.title("Reducing Traffic Mortality Using Machine Learning")
-st.caption("Severity Prediction · Risk Prediction · Hotspot Detection — one pipeline, three coordinated outcomes.")
+artifacts, missing_files = load_artifacts()
 
 if artifacts is None:
-    st.error(
-        "No trained artifacts found in `models/`. Run `python main.py` from the "
-        "project root first, then restart this dashboard."
+
+    st.error("Required trained model artifacts were not found.")
+
+    st.write("Missing files:")
+
+    for file in missing_files:
+        st.write(f"- `{file}`")
+
+    st.info(
+        "Run `python main.py` from the project root after "
+        "checking all pipeline dependencies."
     )
+
     st.stop()
 
-tab_severity, tab_risk, tab_hotspot, tab_perf = st.tabs(
-    ["🚑 Severity Prediction", "⚠️ Risk Scoring", "🗺️ Hotspot Map", "📊 Model Performance"]
+
+district_options = load_districts()
+
+
+# --------------------------------------------------
+# FOUR DASHBOARD TABS
+# --------------------------------------------------
+
+tab_severity, tab_risk, tab_hotspot, tab_performance = st.tabs(
+    [
+        "🚑 Severity Prediction",
+        "⚠️ Risk Scoring",
+        "🗺️ Hotspot Map",
+        "📊 Model Performance",
+    ]
 )
 
-# ---------------------------------------------------------------- Severity
+
+# ==================================================
+# TAB 1 - SEVERITY PREDICTION
+# ==================================================
+
 with tab_severity:
-    st.subheader("How severe is a crash likely to be under these conditions?")
-    st.caption(f"Model in use: **{artifacts['severity_model_name']}** "
-               f"(picked automatically for the best Fatal-class recall — see the Model Performance tab)")
+
+    st.header("Accident Severity Prediction")
+
+    st.write(
+        "Estimate the severity of an accident using its "
+        "recorded road, weather, lighting and time conditions."
+    )
+
+    st.caption(
+        f"Selected model: {artifacts['severity_model_name']}"
+    )
 
     col1, col2, col3 = st.columns(3)
+
     with col1:
-        road_type = st.selectbox("Road type", config.ROAD_TYPES)
-        junction_type = st.selectbox("Junction type", config.JUNCTION_TYPES)
-        city = st.selectbox("City", list(config.CITY_CENTERS.keys()))
+
+        road_type = st.selectbox(
+            "Road type",
+            config.ROAD_TYPES,
+        )
+
+        junction_type = st.selectbox(
+            "Junction type",
+            config.JUNCTION_TYPES,
+        )
+
+        district = st.selectbox(
+            "Local authority district",
+            district_options,
+        )
+
     with col2:
-        weather = st.selectbox("Weather", config.WEATHER_CONDITIONS)
-        light_condition = st.selectbox("Light condition", config.LIGHT_CONDITIONS)
-        road_surface = st.selectbox("Road surface", config.ROAD_SURFACE)
+
+        weather = st.selectbox(
+            "Weather",
+            config.WEATHER_CONDITIONS,
+        )
+
+        light_condition = st.selectbox(
+            "Light condition",
+            config.LIGHT_CONDITIONS,
+        )
+
+        road_surface = st.selectbox(
+            "Road surface",
+            config.ROAD_SURFACE,
+        )
+
     with col3:
-        speed_limit = st.select_slider("Speed limit (km/h)", options=[30, 40, 50, 60, 80, 100], value=60)
-        hour = st.slider("Hour of day", 0, 23, 20)
-        num_vehicles = st.select_slider("Vehicles involved", options=[1, 2, 3, 4], value=1)
+
+        speed_limit = st.select_slider(
+            "Speed limit (mph)",
+            options=[20, 30, 40, 50, 60, 70],
+            value=30,
+        )
+
+        hour = st.slider(
+            "Hour of day",
+            min_value=0,
+            max_value=23,
+            value=20,
+        )
+
+        num_vehicles = st.select_slider(
+            "Number of vehicles involved",
+            options=[1, 2, 3, 4, 5],
+            value=2,
+        )
 
     is_weekend = st.checkbox("Weekend")
 
-    if st.button("Predict severity", type="primary"):
-        from src.features.feature_engineering import add_derived_features
+    if st.button(
+        "Predict accident severity",
+        type="primary",
+    ):
+
+        # Construct a date matching the selected weekend status.
+        selected_date = (
+            pd.Timestamp("2024-01-06")
+            if is_weekend
+            else pd.Timestamp("2024-01-08")
+        )
 
         raw_row = pd.DataFrame([{
-            "date": pd.Timestamp("2024-01-06" if is_weekend else "2024-01-01"),  # Sat vs Mon
-            "hour": hour, "city": city, "road_type": road_type, "junction_type": junction_type,
-            "weather": weather, "light_condition": light_condition, "road_surface": road_surface,
-            "speed_limit": speed_limit, "num_vehicles_involved": num_vehicles,
+            "date": selected_date,
+            "hour": hour,
+            "city": district,
+            "road_type": road_type,
+            "junction_type": junction_type,
+            "weather": weather,
+            "light_condition": light_condition,
+            "road_surface": road_surface,
+            "speed_limit": speed_limit,
+            "num_vehicles_involved": num_vehicles,
         }])
+
         row = add_derived_features(raw_row)
 
-        result = predict_single(artifacts["severity_pipeline"], row)
+        try:
 
-        r1, r2 = st.columns([1, 1])
-        with r1:
-            st.metric("Model's top prediction (argmax)", result["argmax_prediction"])
-            st.metric("Recall-oriented prediction", result["recall_oriented_prediction"],
-                       help=f"Flags Fatal whenever P(Fatal) >= {config.FATAL_DECISION_THRESHOLD:.0%}, "
-                            "since a missed fatal case is far costlier than a false alarm.")
-            st.write("Class probabilities:")
-            st.bar_chart(pd.Series(result["probabilities"]))
-
-        with r2:
-            st.write("**Why this prediction? (SHAP)**")
-            shap_explainer, lime_explainer, lime_encoders = load_explainers(
-                artifacts["severity_pipeline"], artifacts["background"]
+            result = predict_single(
+                artifacts["severity_pipeline"],
+                row,
             )
-            shap_contrib = local_explanation_shap(artifacts["severity_pipeline"], shap_explainer, row)
-            st.bar_chart(shap_contrib)
-            st.caption("Positive = pushes toward Fatal. Negative = pushes away from Fatal.")
 
-            with st.expander("Cross-check with LIME"):
-                lime_contrib = local_explanation_lime(lime_explainer, lime_encoders,
-                                                       artifacts["severity_pipeline"], row)
-                st.bar_chart(pd.Series(lime_contrib))
+            left, right = st.columns(2)
 
-# -------------------------------------------------------------------- Risk
+            with left:
+
+                st.subheader("Prediction")
+
+                st.metric(
+                    "Highest probability class",
+                    result["argmax_prediction"],
+                )
+
+                st.metric(
+                    "Recall-oriented prediction",
+                    result["recall_oriented_prediction"],
+                )
+
+                st.caption(
+                    "The recall-oriented decision flags Fatal when "
+                    f"P(Fatal) >= {config.FATAL_DECISION_THRESHOLD:.0%}."
+                )
+
+                st.write("Class probabilities")
+
+                probabilities = pd.Series(
+                    result["probabilities"]
+                )
+
+                st.bar_chart(probabilities)
+
+            with right:
+
+                st.subheader("Why did the model predict this?")
+
+                try:
+
+                    shap_explainer, lime_explainer, lime_encoders = (
+                        load_explainers(
+                            artifacts["severity_pipeline"],
+                            artifacts["background"],
+                        )
+                    )
+
+                    from src.explainability.explain import (
+                        local_explanation_shap,
+                        local_explanation_lime,
+                    )
+
+                    shap_values = local_explanation_shap(
+                        artifacts["severity_pipeline"],
+                        shap_explainer,
+                        row,
+                        class_idx=2,
+                    )
+
+                    st.write("SHAP explanation for Fatal class")
+
+                    st.bar_chart(shap_values)
+
+                    st.caption(
+                        "Positive values push the model output "
+                        "toward Fatal; negative values push it away."
+                    )
+
+                    with st.expander("LIME explanation"):
+
+                        lime_values = local_explanation_lime(
+                            lime_explainer,
+                            lime_encoders,
+                            artifacts["severity_pipeline"],
+                            row,
+                            class_idx=2,
+                        )
+
+                        st.write(lime_values)
+
+                except Exception as explain_error:
+
+                    st.warning(
+                        "Prediction succeeded, but the explanation "
+                        "could not be generated."
+                    )
+
+                    st.caption(str(explain_error))
+
+        except Exception as prediction_error:
+
+            st.error("Severity prediction failed.")
+
+            st.exception(prediction_error)
+
+
+# ==================================================
+# TAB 2 - RISK SCORING
+# ==================================================
+
 with tab_risk:
-    st.subheader("How risky are these road/time/weather conditions, before anything happens?")
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        r_road = st.selectbox("Road type ", config.ROAD_TYPES, key="risk_road")
-        r_junction = st.selectbox("Junction type ", config.JUNCTION_TYPES, key="risk_junction")
-    with c2:
-        r_weather = st.selectbox("Weather ", config.WEATHER_CONDITIONS, key="risk_weather")
-        r_bucket = st.selectbox("Time window", list(config.HOUR_BUCKETS.keys()), key="risk_bucket")
-    with c3:
-        r_weekend = st.checkbox("Weekend ", key="risk_weekend")
 
-    if st.button("Score this segment"):
-        result = score_segment(artifacts["risk_model"], r_road, r_junction, r_weather, r_bucket, r_weekend)
-        st.metric("Risk score (0-100)", result["risk_score"])
-        st.metric("Risk level", result["risk_level"])
-        st.progress(min(int(result["risk_score"]), 100))
+    st.header("Accident Risk Scoring")
+
+    st.write(
+        "Estimate the historical severity-weighted score "
+        "associated with a road and weather condition combination."
+    )
+
+    st.warning(
+        "This is a historical relative score, not a real-time "
+        "accident probability. Traffic-volume exposure data is unavailable."
+    )
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+
+        risk_road = st.selectbox(
+            "Road type",
+            config.ROAD_TYPES,
+            key="risk_road",
+        )
+
+        risk_junction = st.selectbox(
+            "Junction type",
+            config.JUNCTION_TYPES,
+            key="risk_junction",
+        )
+
+    with c2:
+
+        risk_weather = st.selectbox(
+            "Weather",
+            config.WEATHER_CONDITIONS,
+            key="risk_weather",
+        )
+
+        risk_bucket = st.selectbox(
+            "Time window",
+            list(config.HOUR_BUCKETS.keys()),
+            key="risk_bucket",
+        )
+
+    with c3:
+
+        risk_weekend = st.checkbox(
+            "Weekend",
+            key="risk_weekend",
+        )
+
+    if st.button("Calculate historical risk score"):
+
+        try:
+
+            result = score_segment(
+                artifacts["risk_model"],
+                risk_road,
+                risk_junction,
+                risk_weather,
+                risk_bucket,
+                risk_weekend,
+            )
+
+            st.metric(
+                "Relative risk score",
+                result["risk_score"],
+            )
+
+            st.metric(
+                "Risk category",
+                result["risk_level"],
+            )
+
+            st.progress(
+                min(
+                    max(int(result["risk_score"]), 0),
+                    100,
+                )
+            )
+
+        except Exception as risk_error:
+
+            st.error("Risk scoring failed.")
+
+            st.exception(risk_error)
 
     st.divider()
-    st.write("**Highest-risk segments currently on record:**")
-    lookup = pd.read_csv(config.RISK_LOOKUP_PATH) if config.RISK_LOOKUP_PATH.exists() else None
-    if lookup is not None:
+
+    st.subheader("Highest-scoring historical segments")
+
+    lookup = artifacts["risk_lookup"]
+
+    if not lookup.empty:
+
         st.dataframe(
-            lookup.sort_values("risk_score", ascending=False)
-            .head(15)[["road_type", "junction_type", "weather", "hour_bucket", "is_weekend",
-                       "n_accidents", "fatal_count", "risk_score", "risk_level"]],
+            lookup.sort_values(
+                "risk_score",
+                ascending=False,
+            ).head(15),
             use_container_width=True,
         )
 
-# ----------------------------------------------------------------- Hotspot
+    else:
+
+        st.info("No historical risk segments are available.")
+
+
+# ==================================================
+# TAB 3 - HOTSPOT MAP
+# ==================================================
+
 with tab_hotspot:
-    st.subheader("Where do crashes keep concentrating?")
-    hotspots = artifacts["hotspots"]
 
-    n_show = st.slider("Number of black-spots to show", 5, len(hotspots), min(15, len(hotspots)))
-    shown = hotspots.head(n_show)
+    st.header("Geographic Accident Hotspots")
 
-    import folium
-
-    m = folium.Map(location=[shown["centroid_lat"].mean(), shown["centroid_lon"].mean()], zoom_start=5)
-    for _, row in shown.iterrows():
-        folium.CircleMarker(
-            location=[row["centroid_lat"], row["centroid_lon"]],
-            radius=6 + min(row["severity_weighted_score"] / 200, 14),
-            popup=(f"Rank #{int(row['rank'])} — {row['dominant_city']}<br>"
-                   f"{int(row['n_accidents'])} accidents, {int(row['fatal_count'])} fatal<br>"
-                   f"Weighted score: {row['severity_weighted_score']}"),
-            color="darkred" if row["rank"] <= 5 else "orange",
-            fill=True, fill_opacity=0.7,
-        ).add_to(m)
-
-    st_folium(m, width=1100, height=520)
-
-    st.write("**Ranked black-spot table:**")
-    st.dataframe(
-        shown[["rank", "dominant_city", "n_accidents", "fatal_count", "serious_count",
-               "severity_weighted_score"]],
-        use_container_width=True,
+    st.write(
+        "Geographic clusters of recorded accidents identified "
+        "using DBSCAN."
     )
 
-# ------------------------------------------------------------ Model perf
-with tab_perf:
-    st.subheader("Severity model benchmark (why this model was picked)")
-    import json
-    if config.METRICS_PATH.exists():
-        metrics = json.loads(config.METRICS_PATH.read_text())
-        rows = []
-        for name, m in metrics["severity"].items():
-            rows.append({
-                "model": name,
-                "fatal_recall": round(m["fatal_recall"], 3),
-                "fatal_precision": round(m["fatal_precision"], 3),
-                "macro_f1": round(m["macro_f1"], 3),
-                "roc_auc_ovr": round(m["roc_auc_ovr"], 3) if m["roc_auc_ovr"] else None,
-                "accuracy": round(m["accuracy"], 3),
-            })
-        df_metrics = pd.DataFrame(rows).sort_values("fatal_recall", ascending=False)
-        st.dataframe(df_metrics, use_container_width=True)
-        st.caption(f"Winning model: **{metrics['severity_best_model']}** "
-                   f"(highest Fatal-class recall — the project's primary metric, not accuracy).")
+    hotspots = artifacts["hotspots"]
 
-        st.write("5-fold cross-validated Fatal-class recall for the winning model:")
-        st.bar_chart(pd.Series(metrics["severity_cv_fatal_recall"],
-                                index=[f"fold {i+1}" for i in range(len(metrics["severity_cv_fatal_recall"]))]))
+    if hotspots.empty:
 
-        st.write("Hotspot clustering quality:")
-        st.json(metrics["hotspot"])
+        st.warning("No hotspot records are available.")
+
     else:
-        st.warning("No metrics.json found — run `python main.py` first.")
+
+        n_show = st.slider(
+            "Number of hotspots to display",
+            min_value=1,
+            max_value=len(hotspots),
+            value=min(15, len(hotspots)),
+        )
+
+        shown = hotspots.head(n_show)
+
+        import folium
+
+        map_center = [
+            shown["centroid_lat"].mean(),
+            shown["centroid_lon"].mean(),
+        ]
+
+        map_object = folium.Map(
+            location=map_center,
+            zoom_start=5,
+            tiles="OpenStreetMap",
+        )
+
+        for _, hotspot in shown.iterrows():
+
+            district_name = hotspot["dominant_district"]
+
+            folium.CircleMarker(
+                location=[
+                    hotspot["centroid_lat"],
+                    hotspot["centroid_lon"],
+                ],
+                radius=6 + min(
+                    hotspot["severity_weighted_score"] / 200,
+                    14,
+                ),
+                popup=(
+                    f"Rank #{int(hotspot['rank'])}<br>"
+                    f"District: {district_name}<br>"
+                    f"Accidents in sampled cluster: "
+                    f"{int(hotspot['n_accidents'])}<br>"
+                    f"Fatal: {int(hotspot['fatal_count'])}<br>"
+                    f"Serious: {int(hotspot['serious_count'])}<br>"
+                    f"Weighted score: "
+                    f"{hotspot['severity_weighted_score']}"
+                ),
+                color=(
+                    "darkred"
+                    if hotspot["rank"] <= 5
+                    else "orange"
+                ),
+                fill=True,
+                fill_opacity=0.7,
+            ).add_to(map_object)
+
+        st_folium(
+            map_object,
+            width=1100,
+            height=520,
+        )
+
+        st.subheader("Ranked hotspot table")
+
+        st.dataframe(
+            shown[
+                [
+                    "rank",
+                    "dominant_district",
+                    "n_accidents",
+                    "fatal_count",
+                    "serious_count",
+                    "severity_weighted_score",
+                ]
+            ],
+            use_container_width=True,
+        )
+
+        st.caption(
+            "Hotspots are based on the sampled DBSCAN records. "
+            "Cluster counts do not represent every record in the dataset."
+        )
+
+
+# ==================================================
+# TAB 4 - MODEL PERFORMANCE
+# ==================================================
+
+with tab_performance:
+
+    st.header("Model Performance")
+
+    if config.METRICS_PATH.exists():
+
+        with open(
+            config.METRICS_PATH,
+            "r",
+            encoding="utf-8",
+        ) as file:
+
+            metrics = json.load(file)
+
+        st.subheader("Severity classifier benchmark")
+
+        rows = []
+
+        for name, model_metrics in metrics["severity"].items():
+
+            roc_auc = model_metrics.get("roc_auc_ovr")
+
+            rows.append({
+                "Model": name,
+                "Fatal recall": model_metrics.get("fatal_recall"),
+                "Fatal precision": model_metrics.get("fatal_precision"),
+                "Macro F1": model_metrics.get("macro_f1"),
+                "ROC-AUC OVR": roc_auc,
+                "Accuracy": model_metrics.get("accuracy"),
+            })
+
+        metrics_df = pd.DataFrame(rows)
+
+        st.dataframe(
+            metrics_df.sort_values(
+                "Fatal recall",
+                ascending=False,
+            ),
+            use_container_width=True,
+        )
+
+        st.success(
+            f"Selected model: {metrics['severity_best_model']}"
+        )
+
+        st.caption(
+            "The selected classifier is ranked primarily by Fatal recall."
+        )
+
+        st.subheader("Cross-validation Fatal recall")
+
+        cv_scores = metrics.get(
+            "severity_cv_fatal_recall",
+            [],
+        )
+
+        if cv_scores:
+
+            st.bar_chart(
+                pd.Series(
+                    cv_scores,
+                    index=[
+                        f"Fold {i + 1}"
+                        for i in range(len(cv_scores))
+                    ],
+                )
+            )
+
+        st.subheader("Hotspot clustering results")
+
+        hotspot_metrics = metrics.get("hotspot")
+
+        if hotspot_metrics:
+
+            st.json(hotspot_metrics)
+
+    else:
+
+        st.warning(
+            "metrics.json was not found. Run the training pipeline first."
+        )
+
+
+# --------------------------------------------------
+# FOOTER
+# --------------------------------------------------
+
+st.divider()
+
+st.caption(
+    "Research prototype using real UK STATS19 police-reported "
+    "personal-injury collision records, 2021–2025. "
+    "Model outputs are analytical estimates, not causal conclusions "
+    "or official road-safety risk rates."
+)
